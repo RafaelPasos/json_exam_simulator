@@ -1,0 +1,516 @@
+// --- DOM Elements ---
+const views = {
+  setup: document.getElementById('view-setup'),
+  exam: document.getElementById('view-exam'),
+  results: document.getElementById('view-results')
+};
+
+// Setup View
+const fileInput = document.getElementById('exam-file');
+const fileNameDisplay = document.getElementById('file-name-display');
+const timerInput = document.getElementById('timer-input');
+const btnStart = document.getElementById('btn-start');
+const btnLoadEn = document.getElementById('btn-load-en');
+const btnLoadEs = document.getElementById('btn-load-es');
+
+const fileIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`;
+
+// Exam View
+const examTitleDisplay = document.getElementById('active-exam-title');
+const timerDisplay = document.getElementById('timer-display');
+const btnPauseResume = document.getElementById('btn-pause-resume');
+const btnResetExam = document.getElementById('btn-reset-exam');
+const progressBar = document.getElementById('progress-bar');
+const questionNumberDisplay = document.getElementById('question-number');
+const questionTextDisplay = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options-container');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+const btnSubmit = document.getElementById('btn-submit');
+
+// Results View
+const scorePercentageDisplay = document.getElementById('score-percentage');
+const scoreTextDisplay = document.getElementById('score-text');
+const reviewList = document.getElementById('review-list');
+const btnRestart = document.getElementById('btn-restart');
+const scoreCircle = document.querySelector('.score-circle');
+
+// --- State & i18n ---
+const i18n = {
+  en: {
+    subtitle: "Upload a question bank to begin.",
+    btnLoadEn: "CTFL English",
+    btnLoadEs: "CTFL Español",
+    orDivider: "— OR —",
+    dropzoneText: "Click to browse or drag custom JSON here",
+    noFileSelected: "No file selected",
+    maxQuestionsLabel: "Max Questions:",
+    timeLimitLabel: "Time Limit (minutes):",
+    btnStart: "Start Exam",
+    btnReset: "Reset",
+    btnPrev: "Previous",
+    btnNext: "Next",
+    btnSubmit: "Submit Exam",
+    examPaused: "Exam Paused",
+    examResultsTitle: "Exam Results",
+    btnRestart: "Take Another Exam",
+    yourAnswer: "Your Answer:",
+    scoreText: (correct, total) => `You got ${correct} out of ${total} correct.`
+  },
+  es: {
+    subtitle: "Sube un banco de preguntas para comenzar.",
+    btnLoadEn: "CTFL English",
+    btnLoadEs: "CTFL Español",
+    orDivider: "— O —",
+    dropzoneText: "Haz clic o arrastra un JSON aquí",
+    noFileSelected: "Ningún archivo seleccionado",
+    maxQuestionsLabel: "Preguntas Máximas:",
+    timeLimitLabel: "Tiempo Límite (minutos):",
+    btnStart: "Iniciar Examen",
+    btnReset: "Reiniciar",
+    btnPrev: "Anterior",
+    btnNext: "Siguiente",
+    btnSubmit: "Entregar Examen",
+    examPaused: "Examen Pausado",
+    examResultsTitle: "Resultados del Examen",
+    btnRestart: "Tomar Otro Examen",
+    yourAnswer: "Tu Respuesta:",
+    scoreText: (correct, total) => `Obtuviste ${correct} de ${total} correctas.`
+  }
+};
+let currentLang = 'en';
+
+let state = {
+  status: 'setup',
+  examData: null,
+  answers: {},
+  timeRemaining: 0,
+  currentQuestionIndex: 0
+};
+
+let timerInterval = null;
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const dict = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) {
+      el.textContent = dict[key];
+    }
+  });
+}
+
+// --- Initialization ---
+function init() {
+  loadState();
+  
+  if (state.status === 'active' || state.status === 'paused') {
+    renderExamView();
+    if (state.status === 'active') startTimer();
+  } else if (state.status === 'finished') {
+    renderResultsView();
+  } else {
+    showView('setup');
+  }
+
+  attachEventListeners();
+}
+
+function loadState() {
+  const savedState = localStorage.getItem('examSimulatorState');
+  if (savedState) {
+    try {
+      state = JSON.parse(savedState);
+    } catch (e) {
+      console.error("Failed to parse state", e);
+    }
+  }
+}
+
+function saveState() {
+  localStorage.setItem('examSimulatorState', JSON.stringify(state));
+}
+
+function showView(viewName) {
+  const switchView = () => {
+    Object.values(views).forEach(v => v.classList.remove('active'));
+    views[viewName].classList.add('active');
+  };
+
+  if (document.startViewTransition) {
+    document.startViewTransition(switchView);
+  } else {
+    switchView();
+  }
+}
+
+// --- Event Listeners ---
+function attachEventListeners() {
+  // Setup
+  fileInput.addEventListener('change', handleFileUpload);
+  btnLoadEn.addEventListener('click', () => fetchExam('CTFL_EN.json'));
+  btnLoadEs.addEventListener('click', () => fetchExam('CTFL_ES.json'));
+  btnStart.addEventListener('click', startExam);
+
+  // Exam Navigation
+  btnPrev.addEventListener('click', () => navigate(-1));
+  btnNext.addEventListener('click', () => navigate(1));
+  btnSubmit.addEventListener('click', submitExam);
+  
+  // Timer Pause/Resume
+  btnPauseResume.addEventListener('click', togglePause);
+  
+  btnResetExam.addEventListener('click', () => {
+    if (confirm("Are you sure you want to reset the exam? All progress will be lost.")) {
+      clearInterval(timerInterval);
+      resetApp();
+    }
+  });
+
+  // Restart
+  btnRestart.addEventListener('click', resetApp);
+}
+
+// --- File Handling ---
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  btnLoadEn.classList.remove('preloaded-selected');
+  btnLoadEs.classList.remove('preloaded-selected');
+
+  fileNameDisplay.innerHTML = `${fileIcon} <span>${file.name}</span>`;
+  fileNameDisplay.classList.add('loaded');
+  
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const json = JSON.parse(e.target.result);
+      if (validateExamData(json)) {
+        if (json.questions) {
+          // Fisher-Yates shuffle all questions
+          for (let i = json.questions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [json.questions[i], json.questions[j]] = [json.questions[j], json.questions[i]];
+          }
+        }
+        window.fullExamData = json;
+        btnStart.disabled = false;
+      } else {
+        alert("Invalid exam JSON format.");
+        btnStart.disabled = true;
+      }
+    } catch (err) {
+      alert("Error parsing JSON.");
+      btnStart.disabled = true;
+    }
+  };
+  reader.readAsText(file);
+}
+
+async function fetchExam(filename) {
+  try {
+    fileInput.value = ''; // Clear manual upload
+    
+    // Clear the custom dropzone badge since the button is the visual indicator
+    fileNameDisplay.textContent = i18n[currentLang].noFileSelected;
+    fileNameDisplay.classList.remove('loaded');
+    const response = await fetch(filename);
+    if (!response.ok) throw new Error('Network response was not ok');
+    
+    const json = await response.json();
+    if (validateExamData(json)) {
+      if (json.questions) {
+        // Fisher-Yates shuffle all questions
+        for (let i = json.questions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [json.questions[i], json.questions[j]] = [json.questions[j], json.questions[i]];
+        }
+      }
+      
+      if (filename === 'CTFL_ES.json') {
+        setLanguage('es');
+        btnLoadEs.classList.add('preloaded-selected');
+        btnLoadEn.classList.remove('preloaded-selected');
+      } else {
+        setLanguage('en');
+        btnLoadEn.classList.add('preloaded-selected');
+        btnLoadEs.classList.remove('preloaded-selected');
+      }
+      
+      window.fullExamData = json;
+      btnStart.disabled = false;
+    } else {
+      alert("Invalid exam JSON format.");
+      btnStart.disabled = true;
+    }
+  } catch (error) {
+    alert(`Error loading ${filename}. Make sure the file exists on the server.`);
+    btnStart.disabled = true;
+  }
+}
+
+function validateExamData(data) {
+  return data && data.title && Array.isArray(data.questions) && data.questions.length > 0;
+}
+
+// --- Exam Flow ---
+function startExam() {
+  if (!window.fullExamData) return;
+  
+  const minutes = parseInt(timerInput.value, 10) || 60;
+  const maxQ = parseInt(document.getElementById('max-questions-input').value, 10) || 30;
+  
+  state.status = 'active';
+  state.timeRemaining = minutes * 60;
+  state.currentQuestionIndex = 0;
+  state.answers = {};
+  
+  // Clone data and slice questions array
+  state.examData = {
+    ...window.fullExamData,
+    questions: window.fullExamData.questions.slice(0, maxQ)
+  };
+  
+  saveState();
+  renderExamView();
+  startTimer();
+}
+
+function renderExamView() {
+  showView('exam');
+  examTitleDisplay.textContent = state.examData.title || "Exam";
+  updateTimerDisplay();
+  
+  if (state.status === 'paused') {
+    btnPauseResume.textContent = '▶';
+    questionTextDisplay.textContent = "Exam Paused";
+    optionsContainer.innerHTML = '';
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    return;
+  }
+  
+  btnPauseResume.textContent = '⏸';
+  btnPrev.disabled = false;
+  btnNext.disabled = false;
+  
+  renderCurrentQuestion();
+}
+
+function renderCurrentQuestion() {
+  const total = state.examData.questions.length;
+  const index = state.currentQuestionIndex;
+  const q = state.examData.questions[index];
+  
+  // Progress
+  questionNumberDisplay.textContent = `Question ${index + 1} of ${total}`;
+  progressBar.style.width = `${((index + 1) / total) * 100}%`;
+  
+  // Content
+  questionTextDisplay.textContent = q.text;
+  
+  optionsContainer.innerHTML = '';
+  q.options.forEach(opt => {
+    const label = document.createElement('label');
+    label.className = 'option-label';
+    if (state.answers[q.id] === opt.id) {
+      label.classList.add('selected');
+    }
+    
+    label.innerHTML = `
+      <input type="radio" name="question_option" value="${opt.id}" class="option-input" 
+             ${state.answers[q.id] === opt.id ? 'checked' : ''}>
+      <div class="option-indicator"></div>
+      <div class="option-text">${opt.text}</div>
+    `;
+    
+    label.addEventListener('click', () => {
+      // visual update
+      document.querySelectorAll('.option-label').forEach(l => l.classList.remove('selected'));
+      label.classList.add('selected');
+      // state update
+      state.answers[q.id] = opt.id;
+      saveState();
+    });
+    
+    label.addEventListener('dblclick', () => {
+      navigate(1);
+    });
+    
+    optionsContainer.appendChild(label);
+  });
+  
+  // Buttons
+  btnPrev.classList.toggle('hide', index === 0);
+  
+  if (index === total - 1) {
+    btnNext.classList.add('hide');
+    btnSubmit.classList.remove('hide');
+  } else {
+    btnNext.classList.remove('hide');
+    btnSubmit.classList.add('hide');
+  }
+}
+
+function navigate(direction) {
+  const newIndex = state.currentQuestionIndex + direction;
+  if (newIndex >= 0 && newIndex < state.examData.questions.length) {
+    state.currentQuestionIndex = newIndex;
+    saveState();
+    
+    if (document.startViewTransition) {
+      document.startViewTransition(() => renderCurrentQuestion());
+    } else {
+      renderCurrentQuestion();
+    }
+  }
+}
+
+// --- Timer ---
+function startTimer() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (state.status !== 'active') return;
+    
+    state.timeRemaining--;
+    saveState();
+    updateTimerDisplay();
+    
+    if (state.timeRemaining <= 0) {
+      submitExam();
+    }
+  }, 1000);
+}
+
+function togglePause() {
+  if (state.status === 'active') {
+    state.status = 'paused';
+    saveState();
+    renderExamView();
+  } else if (state.status === 'paused') {
+    state.status = 'active';
+    saveState();
+    renderExamView();
+  }
+}
+
+function updateTimerDisplay() {
+  const totalSeconds = Math.max(0, state.timeRemaining);
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+}
+
+// --- Results Flow ---
+function submitExam() {
+  clearInterval(timerInterval);
+  state.status = 'finished';
+  saveState();
+  renderResultsView();
+}
+
+function renderResultsView() {
+  showView('results');
+  
+  const questions = state.examData.questions;
+  let correctCount = 0;
+  
+  reviewList.innerHTML = '';
+  
+  questions.forEach((q, idx) => {
+    const userAnsId = state.answers[q.id];
+    const isCorrect = userAnsId === q.correctOptionId;
+    if (isCorrect) correctCount++;
+    
+    const item = document.createElement('div');
+    item.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
+    
+    let optionsHtml = '';
+    const correctOpt = q.options.find(o => o.id === q.correctOptionId);
+    const userOpt = q.options.find(o => o.id === userAnsId);
+    
+    if (!isCorrect && userOpt) {
+      optionsHtml += `<div class="review-option user-wrong">
+        ${i18n[currentLang].yourAnswer} ${userOpt.text}
+      </div>`;
+    }
+    
+    if (correctOpt) {
+      optionsHtml += `<div class="review-option correct-answer">
+        ${correctOpt.text}
+      </div>`;
+    }
+    
+    item.innerHTML = `
+      <div class="review-q-text">${idx + 1}. ${q.text}</div>
+      <div class="review-options">${optionsHtml}</div>
+    `;
+    
+    if (q.justification) {
+      item.innerHTML += `
+        <div class="review-justification" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px; color: var(--text-main);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <div>${q.justification}</div>
+        </div>
+      `;
+    }
+    
+    reviewList.appendChild(item);
+  });
+  
+  const scorePercentage = Math.round((correctCount / questions.length) * 100);
+  const scorePercentageEl = document.getElementById('score-percentage');
+  const scoreTextEl = document.getElementById('score-text');
+  const scoreCircle = document.querySelector('.score-circle');
+  
+  scoreTextEl.textContent = i18n[currentLang].scoreText(correctCount, questions.length);
+  
+  // Animate score from 0 to final
+  const duration = 1500;
+  const startTime = performance.now();
+  
+  function animateScore(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeOutProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease-out
+    
+    const currentPercent = Math.round(easeOutProgress * scorePercentage);
+    
+    scorePercentageEl.textContent = `${currentPercent}%`;
+    scoreCircle.style.background = `conic-gradient(var(--primary) ${currentPercent}%, var(--panel-border) ${currentPercent}%)`;
+    
+    if (progress < 1) {
+      requestAnimationFrame(animateScore);
+    }
+  }
+  
+  requestAnimationFrame(animateScore);
+}
+
+function resetApp() {
+  state = {
+    status: 'setup',
+    examData: null,
+    answers: {},
+    timeRemaining: 0,
+    currentQuestionIndex: 0
+  };
+  saveState();
+  window.fullExamData = null;
+  setLanguage('en');
+  
+  btnLoadEn.classList.remove('preloaded-selected');
+  btnLoadEs.classList.remove('preloaded-selected');
+  
+  fileInput.value = '';
+  fileNameDisplay.textContent = i18n['en'].noFileSelected;
+  fileNameDisplay.classList.remove('loaded');
+  btnStart.disabled = true;
+  
+  showView('setup');
+}
+
+// Boot
+init();

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Exam Simulator - Free Client-Side Testing Tool</title>
+  
+  <!-- SEO & AEO -->
+  <meta name="description" content="A fast, free, and completely client-side JSON Exam Simulator. Upload your custom JSON question banks, set a timer, and test your knowledge with instant feedback.">
+  <meta name="keywords" content="JSON exam simulator, practice exam generator, custom quiz app, local exam tool, test prep software">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JSON Exam Simulator">
+  <meta property="og:description" content="Upload your custom JSON question banks and take practice exams instantly in your browser.">
+  
+  <!-- Structured Data (JSON-LD) for AEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JSON Exam Simulator",
+    "description": "A free, client-side web application for uploading custom JSON question banks and simulating timed practice exams with immediate feedback and justifications.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- SETUP VIEW -->
+    <section id="view-setup" class="view active">
+      <div class="glass-panel">
+        <h1>JSON Exam Simulator</h1>
+        <p class="subtitle" data-i18n="subtitle">Upload a question bank to begin.</p>
+        
+        <div class="form-group">
+          <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+            <button id="btn-load-en" class="btn secondary-btn" style="flex: 1; padding: 1.25rem;" data-i18n="btnLoadEn">CTFL English</button>
+            <button id="btn-load-es" class="btn secondary-btn" style="flex: 1; padding: 1.25rem;" data-i18n="btnLoadEs">CTFL Español</button>
+          </div>
+          <div data-i18n="orDivider" style="text-align: center; color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem; font-weight: 500;">— OR —</div>
+          <label for="exam-file" class="file-dropzone">
+            <span class="dropzone-text" data-i18n="dropzoneText">Click to browse or drag custom JSON here</span>
+            <input type="file" id="exam-file" accept=".json" hidden>
+          </label>
+          <div id="file-name-display" class="file-name" data-i18n="noFileSelected">No file selected</div>
+        </div>
+
+        <div class="setup-settings">
+          <div class="form-group">
+            <label for="max-questions-input" data-i18n="maxQuestionsLabel">Max Questions:</label>
+            <select id="max-questions-input" class="form-select">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30" selected>30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timer-input" data-i18n="timeLimitLabel">Time Limit (minutes):</label>
+            <input type="number" id="timer-input" value="60" min="1" max="999">
+          </div>
+        </div>
+
+        <div style="text-align: right; margin-top: 1rem;">
+          <button id="btn-start" class="btn primary-btn" disabled data-i18n="btnStart">Start Exam</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAM VIEW -->
+    <section id="view-exam" class="view">
+      <header class="exam-header">
+        <div class="exam-title" id="active-exam-title">Exam Title</div>
+        <div class="header-right" style="display: flex; gap: 0.75rem; align-items: center;">
+          <div class="timer-container">
+            <span id="timer-display">60:00</span>
+            <button id="btn-pause-resume" class="icon-btn" aria-label="Pause/Resume">⏸</button>
+          </div>
+          <button id="btn-reset-exam" class="btn secondary-btn" style="padding: 0.5rem 1rem;" data-i18n="btnReset">Reset</button>
+        </div>
+      </header>
+
+      <div class="glass-panel main-exam-panel">
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        
+        <div class="question-header">
+          <span id="question-number" class="badge">Question 1 of 10</span>
+        </div>
+        
+        <h2 id="question-text" class="question-text">Loading question...</h2>
+        
+        <div id="options-container" class="options-grid">
+          <!-- Options injected via JS -->
+        </div>
+
+        <div class="exam-actions">
+          <button id="btn-prev" class="btn secondary-btn" data-i18n="btnPrev">Previous</button>
+          <button id="btn-next" class="btn primary-btn" data-i18n="btnNext">Next</button>
+          <button id="btn-submit" class="btn danger-btn hide" data-i18n="btnSubmit">Submit Exam</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS VIEW -->
+    <section id="view-results" class="view">
+      <div class="glass-panel">
+        <h1 data-i18n="examResultsTitle">Exam Results</h1>
+        
+        <div class="results-layout">
+          <div class="results-sidebar">
+            <div class="score-summary">
+              <div class="score-circle">
+                <span id="score-percentage">0%</span>
+              </div>
+              <p id="score-text">You got 0 out of 0 correct.</p>
+            </div>
+            
+            <div class="review-actions">
+              <button id="btn-restart" class="btn secondary-btn" data-i18n="btnRestart">Take Another Exam</button>
+            </div>
+          </div>
+          
+          <div class="results-main">
+            <div id="review-list" class="review-list">
+              <!-- Review items injected via JS -->
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>

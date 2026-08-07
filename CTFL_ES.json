@@ -1,0 +1,1037 @@
+{
+  "title": "ISTQB CTFL 4.0 Practice Question Bank",
+  "questions": [
+    {
+      "id": "1.01",
+      "text": "¿Cuál de los siguientes representa un objetivo típico de las pruebas?",
+      "options": [
+        { "id": "a", "text": "Prevenir la introducción de defectos en el código fuente modificando los hábitos de los desarrolladores." },
+        { "id": "b", "text": "Demostrar que no quedan defectos sin corregir en el sistema." },
+        { "id": "c", "text": "Reducir el nivel de riesgo y generar confianza en la calidad del software." },
+        { "id": "d", "text": "Solucionar los defectos identificados durante la ejecución dinámica." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las pruebas reducen el riesgo y generan confianza. Demostrar que no hay defectos es imposible (Principio 1). Solucionar defectos es depuración (debugging)."
+    },
+    {
+      "id": "1.02",
+      "text": "¿Cómo se diferencian las pruebas de la depuración?",
+      "options": [
+        { "id": "a", "text": "Las pruebas eliminan los fallos; la depuración elimina los defectos." },
+        { "id": "b", "text": "Las pruebas identifican defectos y fallos; la depuración reproduce, diagnostica y corrige los defectos." },
+        { "id": "c", "text": "Las pruebas son un proceso preventivo; la depuración es un proceso correctivo." },
+        { "id": "d", "text": "Las pruebas dinámicas identifican las causas raíz, mientras que la depuración previene los fallos." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas revelan fallos (dinámicas) o defectos (estáticas). La depuración es la actividad posterior del desarrollador para analizar y resolver el defecto."
+    },
+    {
+      "id": "1.03",
+      "text": "¿Qué afirmación describe con precisión la relación entre errores, defectos y fallos?",
+      "options": [
+        { "id": "a", "text": "Las condiciones ambientales causan errores, que conducen a fallos." },
+        { "id": "b", "text": "Un ser humano comete un error, produciendo un defecto, que puede resultar en un fallo durante la ejecución." },
+        { "id": "c", "text": "Los fallos en la documentación conducen a defectos en el software en ejecución." },
+        { "id": "d", "text": "Los defectos son pensamientos equivocados que resultan en errores en el código." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Los humanos cometen errores (equivocaciones) que introducen defectos (fallas/bugs) en los productos de trabajo. Ejecutar código defectuoso causa fallos."
+    },
+    {
+      "id": "1.04",
+      "text": "Un Product Owner exige que el equipo de pruebas encuentre todos los errores antes del lanzamiento del software. ¿Qué principio de prueba refuta esta demanda?",
+      "options": [
+        { "id": "a", "text": "Agrupación de defectos (Defect clustering)." },
+        { "id": "b", "text": "Las pruebas muestran la presencia de defectos, no su ausencia." },
+        { "id": "c", "text": "Falacia de la ausencia de errores." },
+        { "id": "d", "text": "Paradoja del pesticida." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas pueden demostrar que los defectos están presentes, pero no pueden probar su ausencia absoluta. Las pruebas exhaustivas son imposibles."
+    },
+    {
+      "id": "1.05",
+      "text": "¿Cuál es la diferencia principal entre el Aseguramiento de la Calidad (QA) y el Control de Calidad (QC)?",
+      "options": [
+        { "id": "a", "text": "El QA es correctivo; el QC es preventivo." },
+        { "id": "b", "text": "El QA se centra en la implementación y mejora de procesos; el QC está orientado al producto y es correctivo." },
+        { "id": "c", "text": "Las pruebas son simplemente otro término para QA." },
+        { "id": "d", "text": "El QC se centra únicamente en pruebas estáticas." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El QA está orientado a los procesos y es preventivo. El QC está orientado al producto. Las pruebas son una forma de Control de Calidad."
+    },
+    {
+      "id": "1.06",
+      "text": "¿Qué actividad pertenece a la fase de \"Implementación de la Prueba\" del proceso de pruebas?",
+      "options": [
+        { "id": "a", "text": "Evaluar la base de prueba para determinar su capacidad de prueba (testability)." },
+        { "id": "b", "text": "Identificar las condiciones de prueba." },
+        { "id": "c", "text": "Crear datos de prueba y guiones de prueba (test scripts)." },
+        { "id": "d", "text": "Ejecutar conjuntos de pruebas automatizadas." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Crear datos, conjuntos y guiones de prueba es Implementación de Pruebas. Evaluar la base e identificar condiciones es Análisis de Pruebas."
+    },
+    {
+      "id": "1.07",
+      "text": "¿Cuál es un principio fundamental del \"Enfoque de Todo el Equipo\" (Whole Team Approach)?",
+      "options": [
+        { "id": "a", "text": "Todo miembro del equipo debe tener una certificación de pruebas." },
+        { "id": "b", "text": "Cualquier miembro con las habilidades necesarias puede realizar tareas de prueba, compartiendo la responsabilidad de la calidad." },
+        { "id": "c", "text": "Los desarrolladores prueban su propio código sin revisión por pares para aumentar la velocidad." },
+        { "id": "d", "text": "Los probadores trabajan de forma aislada para mantener la objetividad." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El Enfoque de Todo el Equipo aboga por que la calidad es una responsabilidad compartida, y cualquiera con las habilidades requeridas puede ejecutar tareas de prueba."
+    },
+    {
+      "id": "1.08",
+      "text": "¿Cuál es un beneficio reconocido de las pruebas independientes?",
+      "options": [
+        { "id": "a", "text": "Elimina la responsabilidad del desarrollador sobre la calidad del software." },
+        { "id": "b", "text": "Es más rápido y económico que las pruebas dirigidas por los desarrolladores." },
+        { "id": "c", "text": "Los probadores independientes reconocen diferentes tipos de fallos y cuestionan las suposiciones ocultas." },
+        { "id": "d", "text": "Elimina la necesidad de comunicación entre desarrolladores y probadores." }
+      ],
+      "correctOptionId": "c",
+      "justification": "La independencia permite a los probadores cuestionar las suposiciones hechas durante el desarrollo y detectar defectos que los autores originales pasaron por alto."
+    },
+    {
+      "id": "1.09",
+      "text": "¿Qué implica el principio de \"Agrupación de Defectos\" (Defect Clustering)?",
+      "options": [
+        { "id": "a", "text": "Los defectos se distribuyen uniformemente en todos los componentes del sistema." },
+        { "id": "b", "text": "Un pequeño número de módulos generalmente contiene la mayoría de los defectos descubiertos." },
+        { "id": "c", "text": "Las pruebas deben actualizarse continuamente para encontrar nuevos defectos." },
+        { "id": "d", "text": "Las pruebas deben comenzar lo antes posible en el ciclo de vida." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La agrupación de defectos sigue el principio de Pareto, donde un pequeño subconjunto de módulos es responsable de la mayoría de los fallos operativos."
+    },
+    {
+      "id": "1.10",
+      "text": "Durante la revisión de un proyecto, el equipo se da cuenta de que construyó un sistema altamente confiable que no satisface las necesidades comerciales reales de los usuarios. ¿Qué principio resalta este problema?",
+      "options": [
+        { "id": "a", "text": "Los tests se desgastan (Paradoja del pesticida)." },
+        { "id": "b", "text": "Falacia de la ausencia de defectos." },
+        { "id": "c", "text": "Pruebas tempranas." },
+        { "id": "d", "text": "Las pruebas dependen del contexto." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Encontrar y corregir defectos no sirve de nada si el sistema construido es inutilizable o no cumple con las verdaderas necesidades y expectativas de los usuarios."
+    },
+    {
+      "id": "1.11",
+      "text": "¿Qué habilidad genérica es críticamente específica para que los probadores comuniquen los defectos a los desarrolladores sin causar una actitud defensiva?",
+      "options": [
+        { "id": "a", "text": "Competencia técnica en codificación." },
+        { "id": "b", "text": "Habilidades interpersonales y de comunicación." },
+        { "id": "c", "text": "Lógica matemática." },
+        { "id": "d", "text": "Administración de bases de datos." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las habilidades de comunicación son vitales para garantizar que los defectos se informen de manera constructiva y para fomentar la colaboración en el equipo."
+    },
+    {
+      "id": "1.12",
+      "text": "La trazabilidad entre la base de prueba y el software de prueba (testware) cumple con ¿cuál propósito principal?",
+      "options": [
+        { "id": "a", "text": "Automatizar completamente la ejecución de las pruebas." },
+        { "id": "b", "text": "Apoyar la evaluación de la cobertura, el análisis de impacto y los informes de estado." },
+        { "id": "c", "text": "Reemplazar la necesidad de un plan de prueba formal." },
+        { "id": "d", "text": "Demostrar que la depuración fue exitosa." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La trazabilidad vincula los requisitos con los casos de prueba, permitiendo evaluar la cobertura, analizar el impacto de los cambios y reportar métricas."
+    },
+    {
+      "id": "1.13",
+      "text": "¿Cuál de los siguientes se considera una causa raíz (root cause) en lugar de un error, defecto o fallo?",
+      "options": [
+        { "id": "a", "text": "Un punto y coma faltante en el código fuente." },
+        { "id": "b", "text": "El bloqueo del sistema cuando un usuario ingresa un número negativo." },
+        { "id": "c", "text": "La falta de capacitación de un desarrollador en prácticas de codificación segura." },
+        { "id": "d", "text": "Un error tipográfico en el documento de especificación de requisitos." }
+      ],
+      "correctOptionId": "c",
+      "justification": "La causa raíz es el problema sistémico fundamental (falta de formación). El error es la equivocación humana, el defecto es el fallo en el código y el bloqueo es el fallo operativo."
+    },
+    {
+      "id": "1.14",
+      "text": "Un probador que ejecuta una sesión exploratoria descubre una excepción no controlada. ¿Qué ha identificado el probador?",
+      "options": [
+        { "id": "a", "text": "Una causa raíz." },
+        { "id": "b", "text": "Un fallo." },
+        { "id": "c", "text": "Un error." },
+        { "id": "d", "text": "Una deficiencia en el proceso." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Ejecutar el software y observar un resultado inesperado (excepción no controlada) es identificar un fallo. El fallo es causado por un defecto subyacente."
+    },
+    {
+      "id": "1.15",
+      "text": "¿Cuál de las siguientes NO es una actividad típicamente asociada con la fase de Finalización de la Prueba?",
+      "options": [
+        { "id": "a", "text": "Archivar el testware para uso futuro." },
+        { "id": "b", "text": "Entregar el testware al equipo de mantenimiento." },
+        { "id": "c", "text": "Identificar las condiciones de prueba basadas en la base de prueba." },
+        { "id": "d", "text": "Crear un informe de finalización de la prueba." }
+      ],
+      "correctOptionId": "c",
+      "justification": "La identificación de las condiciones de prueba ocurre durante el Análisis de Pruebas, no en la Finalización de la Prueba."
+    },
+    {
+      "id": "1.16",
+      "text": "Un equipo de pruebas decide reutilizar los mismos casos de prueba exactos durante 5 años sin ninguna modificación. Encuentran cada vez menos defectos. ¿A qué principio se enfrentan?",
+      "options": [
+        { "id": "a", "text": "Pruebas tempranas." },
+        { "id": "b", "text": "Paradoja del pesticida (Los tests se desgastan)." },
+        { "id": "c", "text": "Agrupación de defectos." },
+        { "id": "d", "text": "Pruebas dependientes del contexto." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Si los mismos tests se repiten continuamente, eventualmente dejarán de encontrar nuevos defectos, requiriendo que los tests sean revisados y actualizados."
+    },
+    {
+      "id": "1.17",
+      "text": "¿Qué aspecto distingue mejor una auditoría de aseguramiento de calidad (QA) de una sesión de pruebas del sistema (QC)?",
+      "options": [
+        { "id": "a", "text": "La auditoría verifica si se siguieron los estándares de codificación; las pruebas del sistema ejecutan el producto para encontrar fallos." },
+        { "id": "b", "text": "La auditoría ejecuta casos de prueba automatizados; las pruebas del sistema son siempre manuales." },
+        { "id": "c", "text": "La auditoría es realizada por los desarrolladores; las pruebas por los usuarios finales." },
+        { "id": "d", "text": "No hay diferencia; ambos son enfoques correctivos." }
+      ],
+      "correctOptionId": "a",
+      "justification": "QA (auditorías, revisiones de procesos) verifica que los procesos de prevención se sigan. QC (pruebas del sistema) evalúa el producto resultante."
+    },
+    {
+      "id": "1.18",
+      "text": "¿Cuál es la implicación principal del principio \"Las pruebas dependen del contexto\"?",
+      "options": [
+        { "id": "a", "text": "Todos los proyectos de software deben usar el mismo conjunto de herramientas de automatización." },
+        { "id": "b", "text": "Un sitio web de comercio electrónico se probará de manera diferente a un sistema de control de vuelo de un avión." },
+        { "id": "c", "text": "El contexto dicta que las pruebas exploratorias nunca deben usarse en sistemas financieros." },
+        { "id": "d", "text": "Las pruebas sólo son necesarias en contextos de alto riesgo." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Diferentes aplicaciones tienen diferentes perfiles de riesgo, requisitos legales y expectativas de los usuarios, lo que exige metodologías de prueba distintas."
+    },
+    {
+      "id": "1.19",
+      "text": "¿Qué tarea pertenece a la actividad de \"Planificación de Pruebas\"?",
+      "options": [
+        { "id": "a", "text": "Escribir guiones de automatización de pruebas." },
+        { "id": "b", "text": "Determinar el enfoque de prueba y estimar el esfuerzo requerido." },
+        { "id": "c", "text": "Comparar los resultados reales con los esperados." },
+        { "id": "d", "text": "Configurar el entorno de prueba." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La planificación implica definir los objetivos, el enfoque, los recursos y la estimación del esfuerzo de las pruebas."
+    },
+    {
+      "id": "1.20",
+      "text": "Al verificar si la trazabilidad está completa, ¿qué relación crítica se está confirmando?",
+      "options": [
+        { "id": "a", "text": "Que cada desarrollador ha registrado sus horas de trabajo." },
+        { "id": "b", "text": "Que cada requisito tiene casos de prueba asociados y resultados registrados, bidireccionalmente." },
+        { "id": "c", "text": "Que el código fuente compila sin advertencias." },
+        { "id": "d", "text": "Que los probadores operan de forma independiente de los desarrolladores." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La trazabilidad bidireccional garantiza que el origen de cada prueba esté justificado por un requisito, y que cada requisito esté cubierto por pruebas."
+    },
+    {
+      "id": "2.01",
+      "text": "¿Cuál de las siguientes es una característica fundamental de las buenas prácticas de prueba en todos los modelos SDLC?",
+      "options": [
+        { "id": "a", "text": "Las pruebas dinámicas siempre comienzan antes de que se complete la codificación." },
+        { "id": "b", "text": "Toda actividad de desarrollo tiene su correspondiente actividad de prueba." },
+        { "id": "c", "text": "Los equipos de prueba independientes solo se utilizan en modelos secuenciales (Cascada)." },
+        { "id": "d", "text": "Las pruebas de aceptación del usuario son realizadas por los desarrolladores." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Una buena práctica universal es que cada fase de desarrollo se combine con una actividad de prueba correspondiente (ej., análisis de requisitos se empareja con planificación de pruebas del sistema)."
+    },
+    {
+      "id": "2.02",
+      "text": "¿Cuál es la filosofía central del enfoque \"Shift-Left\" en las pruebas de software?",
+      "options": [
+        { "id": "a", "text": "Mover todas las actividades de prueba a la fase final antes de la implementación." },
+        { "id": "b", "text": "Retrasar el diseño de la prueba hasta que el software esté completamente codificado." },
+        { "id": "c", "text": "Realizar actividades de prueba, como análisis estático y revisiones de especificaciones, más temprano en el SDLC." },
+        { "id": "d", "text": "Trasladar la responsabilidad de las pruebas por completo al equipo de operaciones." }
+      ],
+      "correctOptionId": "c",
+      "justification": "El enfoque Shift-Left (desplazamiento a la izquierda) integra las pruebas en las primeras etapas del ciclo de vida para identificar los defectos cuando son más baratos y fáciles de solucionar."
+    },
+    {
+      "id": "2.03",
+      "text": "¿Qué metodología de desarrollo utiliza un lenguaje natural (Dado/Cuando/Entonces o Given/When/Then) para expresar el comportamiento del software?",
+      "options": [
+        { "id": "a", "text": "Desarrollo Guiado por Pruebas (TDD)" },
+        { "id": "b", "text": "Desarrollo Guiado por Pruebas de Aceptación (ATDD)" },
+        { "id": "c", "text": "Desarrollo Guiado por el Comportamiento (BDD)" },
+        { "id": "d", "text": "Pruebas Basadas en Sesiones" }
+      ],
+      "correctOptionId": "c",
+      "justification": "BDD se basa en lenguaje natural (Given/When/Then) para cerrar la brecha de comunicación entre los interesados técnicos y comerciales."
+    },
+    {
+      "id": "2.04",
+      "text": "¿Qué distingue a las Pruebas de Regresión de las Pruebas de Confirmación?",
+      "options": [
+        { "id": "a", "text": "La regresión verifica si un defecto se solucionó con éxito; la confirmación garantiza que no se introdujeran nuevos defectos." },
+        { "id": "b", "text": "La confirmación verifica la corrección de un defecto; la regresión garantiza que los cambios no hayan causado efectos secundarios adversos en el resto del sistema." },
+        { "id": "c", "text": "Las pruebas de regresión solo se realizan en entornos de producción." },
+        { "id": "d", "text": "Las pruebas de confirmación son un tipo de prueba estática." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La confirmación (re-testing) verifica que el defecto específico está resuelto. La regresión asegura que el resto del sistema permanece intacto tras el cambio."
+    },
+    {
+      "id": "2.05",
+      "text": "¿Cómo influye la implementación de DevOps en las pruebas?",
+      "options": [
+        { "id": "a", "text": "Elimina la necesidad de pruebas exploratorias manuales." },
+        { "id": "b", "text": "Aísla completamente al equipo de desarrollo del equipo de operaciones." },
+        { "id": "c", "text": "Crea una sinergia entre el desarrollo y las operaciones, permitiendo una retroalimentación rápida, CI/CD y entornos de prueba estables." },
+        { "id": "d", "text": "Restringe las pruebas al entorno de producción únicamente." }
+      ],
+      "correctOptionId": "c",
+      "justification": "DevOps se centra en canalizaciones CI/CD, aumentando la automatización, fomentando ciclos de retroalimentación rápidos y apoyando las prácticas Shift-Left."
+    },
+    {
+      "id": "2.06",
+      "text": "¿Con qué propósito principal se llevan a cabo las retrospectivas en un entorno Ágil?",
+      "options": [
+        { "id": "a", "text": "Para asignar la culpa por los defectos que llegaron a producción." },
+        { "id": "b", "text": "Para estimar el coste de la próxima versión." },
+        { "id": "c", "text": "Para discutir los éxitos, los desafíos y las mejoras continuas del proceso para iteraciones futuras." },
+        { "id": "d", "text": "Para ejecutar las pruebas de aceptación del usuario finales." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las retrospectivas son mecanismos de mejora de procesos Ágiles enfocados en lecciones aprendidas y optimización de flujos de trabajo del equipo."
+    },
+    {
+      "id": "2.07",
+      "text": "¿Qué desencadena la necesidad de realizar Pruebas de Mantenimiento?",
+      "options": [
+        { "id": "a", "text": "La creación inicial de la especificación de requisitos del software." },
+        { "id": "b", "text": "Modificaciones, migraciones o el retiro de software en un entorno de producción en vivo." },
+        { "id": "c", "text": "La decisión de adoptar un nuevo marco de automatización de pruebas." },
+        { "id": "d", "text": "El inicio de un nuevo sprint Ágil para un proyecto desde cero (greenfield)." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas de mantenimiento se activan por cambios en el software operativo existente, incluidos parches, migraciones o el desmantelamiento del sistema."
+    },
+    {
+      "id": "2.08",
+      "text": "¿Qué afirmación sobre los niveles de prueba es correcta?",
+      "options": [
+        { "id": "a", "text": "Las pruebas unitarias validan todo el sistema frente a los requisitos del usuario." },
+        { "id": "b", "text": "Las pruebas de integración solo ocurren entre componentes de hardware." },
+        { "id": "c", "text": "Los diferentes niveles de prueba tienen objetivos específicos para gestionar la redundancia y enfocarse en tipos apropiados de objetos de prueba." },
+        { "id": "d", "text": "Las pruebas de aceptación son ejecutadas principalmente por el desarrollador principal." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Los niveles de prueba (Componente, Integración, Sistema, Aceptación) pueden superponerse levemente, pero mantienen objetivos distintos para garantizar una cobertura exhaustiva sin esfuerzo inútil."
+    },
+    {
+      "id": "2.09",
+      "text": "En un modelo de desarrollo iterativo, ¿cuándo comienzan típicamente el análisis y el diseño de las pruebas?",
+      "options": [
+        { "id": "a", "text": "Sólo después de que el sistema ha sido implementado en producción." },
+        { "id": "b", "text": "Durante la fase de desarrollo correspondiente de la iteración actual." },
+        { "id": "c", "text": "Exclusivamente durante la iteración final del proyecto." },
+        { "id": "d", "text": "Antes de que se hayan recopilado los requisitos comerciales." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Para respaldar la retroalimentación temprana, el análisis y el diseño de las pruebas comienzan en conjunto con las actividades de desarrollo correspondientes de esa misma iteración."
+    },
+    {
+      "id": "2.10",
+      "text": "Un equipo escribe pruebas unitarias automatizadas basadas en los criterios de aceptación *antes* de escribir el código de la aplicación. Luego, el código se desarrolla específicamente para pasar estas pruebas. Esto describe:",
+      "options": [
+        { "id": "a", "text": "Pruebas de Mantenimiento." },
+        { "id": "b", "text": "Desarrollo Guiado por Pruebas de Aceptación (ATDD)." },
+        { "id": "c", "text": "Pruebas Exploratorias." },
+        { "id": "d", "text": "Modelo en Cascada (Waterfall)." }
+      ],
+      "correctOptionId": "b",
+      "justification": "ATDD deriva las pruebas de los criterios de aceptación antes de la implementación, impulsando y guiando el proceso de desarrollo."
+    },
+    {
+      "id": "2.11",
+      "text": "¿Cuál es el objetivo principal de las Pruebas de Componentes (Unit Testing)?",
+      "options": [
+        { "id": "a", "text": "Validar que el sistema integral cumpla con los requisitos del negocio." },
+        { "id": "b", "text": "Aislar y probar individualmente las partes comprobables más pequeñas del software en busca de defectos en la lógica interna." },
+        { "id": "c", "text": "Probar la interacción entre interfaces de sistemas de terceros." },
+        { "id": "d", "text": "Evaluar la usabilidad y la estética de la interfaz de usuario." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas de componentes evalúan funciones o clases individuales (caja blanca) para garantizar que la lógica base funcione correctamente antes de la integración."
+    },
+    {
+      "id": "2.12",
+      "text": "En el contexto del modelo en V (V-Model), ¿qué nivel de prueba se corresponde directamente con la fase de diseño arquitectónico?",
+      "options": [
+        { "id": "a", "text": "Pruebas de componentes." },
+        { "id": "b", "text": "Pruebas de integración del sistema." },
+        { "id": "c", "text": "Pruebas de aceptación del usuario." },
+        { "id": "d", "text": "Pruebas de mantenimiento." }
+      ],
+      "correctOptionId": "b",
+      "justification": "En el modelo en V, la arquitectura del sistema define cómo se ensamblarán los módulos, lo cual se verifica mediante las pruebas de integración del sistema."
+    },
+    {
+      "id": "2.13",
+      "text": "¿Cuál de las siguientes afirmaciones describe mejor el Desarrollo Guiado por Pruebas (TDD)?",
+      "options": [
+        { "id": "a", "text": "Los probadores escriben todos los guiones de prueba después de que la codificación está completa." },
+        { "id": "b", "text": "Las pruebas automatizadas fallan inicialmente, luego se escribe el código de la aplicación para hacer que la prueba pase, seguido de la refactorización." },
+        { "id": "c", "text": "Los usuarios comerciales escriben historias de usuario que se traducen en código heredado." },
+        { "id": "d", "text": "Las pruebas se realizan únicamente en el entorno de producción." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El ciclo TDD es Red-Green-Refactor: escribir una prueba que falla, escribir el código mínimo para pasarla y luego refactorizar para mejorar la calidad del código."
+    },
+    {
+      "id": "2.14",
+      "text": "¿Cuál es un análisis de impacto (Impact Analysis) en el contexto de las pruebas de mantenimiento?",
+      "options": [
+        { "id": "a", "text": "Evaluar el impacto financiero de contratar a un nuevo gestor de pruebas." },
+        { "id": "b", "text": "Determinar qué partes del sistema existente pueden verse afectadas inadvertidamente por un cambio propuesto, para seleccionar las pruebas de regresión adecuadas." },
+        { "id": "c", "text": "Analizar el impacto de un sistema de hardware físico que se cae al suelo." },
+        { "id": "d", "text": "Estimar el impacto de no utilizar un marco de automatización." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El análisis de impacto identifica las dependencias arquitectónicas de un cambio para garantizar que el esfuerzo de las pruebas de regresión esté correctamente focalizado."
+    },
+    {
+      "id": "2.15",
+      "text": "¿Por qué el principio de Shift-Left puede requerir un mayor esfuerzo en las etapas iniciales de un proyecto?",
+      "options": [
+        { "id": "a", "text": "Porque requiere contratar a usuarios finales para que hagan las pruebas." },
+        { "id": "b", "text": "Porque exige que el software se codifique dos veces." },
+        { "id": "c", "text": "Porque involucra revisiones estáticas rigurosas, análisis de especificaciones y creación de pruebas antes de que exista el código." },
+        { "id": "d", "text": "Porque impide el uso de herramientas de automatización de código abierto." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Aunque ahorra dinero a largo plazo al prevenir defectos dinámicos graves, el Shift-Left requiere una inversión inicial de tiempo para revisar documentos y crear marcos de prueba temprano."
+    },
+    {
+      "id": "3.01",
+      "text": "¿Cuál de los siguientes defectos es significativamente más fácil de encontrar a través de pruebas estáticas en lugar de pruebas dinámicas?",
+      "options": [
+        { "id": "a", "text": "Fugas de memoria que ocurren bajo una carga concurrente masiva de usuarios." },
+        { "id": "b", "text": "Inconsistencias en los requisitos, ambigüedades y desviaciones de los estándares de codificación." },
+        { "id": "c", "text": "Problemas de sincronización causados por la latencia de la red." },
+        { "id": "d", "text": "Excepciones no controladas provocadas por fallas físicas de hardware." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas estáticas destacan al encontrar omisiones, código muerto, problemas de diseño arquitectónico y violaciones de estándares antes de que sea posible ejecutar el código."
+    },
+    {
+      "id": "3.02",
+      "text": "¿Cuál es el beneficio económico principal de implementar pruebas estáticas tempranas?",
+      "options": [
+        { "id": "a", "text": "Elimina por completo la necesidad de pruebas dinámicas." },
+        { "id": "b", "text": "Detecta los defectos temprano, reduciendo drásticamente el costo de corregirlos y evitando la propagación de fallos." },
+        { "id": "c", "text": "Permite a los probadores evaluar el rendimiento del sistema en tiempo de ejecución." },
+        { "id": "d", "text": "Garantiza el 100% de la cobertura de sentencias." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El argumento económico central de las pruebas estáticas es que encontrar defectos en los documentos o en el código fuente previene que se conviertan en fallos dinámicos costosos más adelante."
+    },
+    {
+      "id": "3.03",
+      "text": "¿Cuál de los siguientes se considera un producto de trabajo (work product) que puede someterse a pruebas estáticas?",
+      "options": [
+        { "id": "a", "text": "El flujo de ejecución de un archivo binario compilado." },
+        { "id": "b", "text": "La utilización de la CPU de un servidor durante una prueba de carga." },
+        { "id": "c", "text": "Historias de usuario, diagramas arquitectónicos y código fuente sin compilar." },
+        { "id": "d", "text": "El tiempo de respuesta de un endpoint de una API." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las pruebas estáticas analizan artefactos (documentos, modelos, código crudo) sin ejecutar operativamente el software."
+    },
+    {
+      "id": "3.04",
+      "text": "Durante un proceso de revisión formal, ¿cuál es el objetivo principal de recopilar comentarios frecuentes (\"frequent feedback\")?",
+      "options": [
+        { "id": "a", "text": "Aumentar la duración del ciclo de vida del desarrollo." },
+        { "id": "b", "text": "Evitar construir el producto equivocado ajustando la alineación con las necesidades de las partes interesadas de forma temprana y recurrente." },
+        { "id": "c", "text": "Reemplazar el rol del Gerente de Pruebas." },
+        { "id": "d", "text": "Generar métricas únicamente para evaluaciones de desempeño individual." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Los mecanismos de retroalimentación frecuente aseguran que el equipo esté construyendo el producto correcto, cambiando el enfoque de detectar errores a evitarlos."
+    },
+    {
+      "id": "3.05",
+      "text": "¿Para qué son particularmente adeptas las herramientas de análisis estático?",
+      "options": [
+        { "id": "a", "text": "Determinar si la interfaz gráfica atrae al grupo demográfico objetivo." },
+        { "id": "b", "text": "Identificar variables no definidas, código inalcanzable (muerto) y vulnerabilidades de seguridad comunes." },
+        { "id": "c", "text": "Encontrar la carga exacta en la que se bloquea un servidor web." },
+        { "id": "d", "text": "Evaluar la usabilidad subjetiva de una aplicación." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las herramientas de análisis estático analizan programáticamente el código para encontrar fallas estructurales y brechas de seguridad sin ejecutar la aplicación."
+    },
+    {
+      "id": "3.06",
+      "text": "En una revisión técnica, ¿cuál es el propósito principal de mantener actas (minutes) o registros detallados de la reunión?",
+      "options": [
+        { "id": "a", "text": "Garantizar que las decisiones, los defectos identificados y los elementos de acción se documenten para su seguimiento." },
+        { "id": "b", "text": "Rastrear el tiempo exacto que cada participante pasa hablando." },
+        { "id": "c", "text": "Proporcionar un documento para la depuración dinámica." },
+        { "id": "d", "text": "Sustituir la necesidad de un informe de finalización de la prueba." }
+      ],
+      "correctOptionId": "a",
+      "justification": "La documentación de las revisiones (como actas o registros de defectos) es vital para el seguimiento de la mejora del proceso y garantizar que los defectos identificados se solucionen realmente."
+    },
+    {
+      "id": "3.07",
+      "text": "¿Qué enfoque describe mejor la diferencia entre el análisis estático y las pruebas dinámicas respecto a los caminos del código (code paths)?",
+      "options": [
+        { "id": "a", "text": "Las pruebas dinámicas pueden cubrir todos los caminos posibles fácilmente, mientras que el análisis estático no." },
+        { "id": "b", "text": "El análisis estático puede evaluar todos los caminos y flujos de control del código, incluso aquellos extremadamente difíciles de reproducir dinámicamente." },
+        { "id": "c", "text": "El análisis estático solo examina los requisitos, no el código." },
+        { "id": "d", "text": "No hay diferencia en cómo evalúan los caminos del código." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El análisis estático examina matemáticamente toda la estructura del código, detectando ramas inalcanzables que las pruebas dinámicas jamás podrían ejecutar o reproducir por diseño."
+    },
+    {
+      "id": "3.08",
+      "text": "¿Qué afirmación es FALSA sobre el proceso de revisión de productos de trabajo?",
+      "options": [
+        { "id": "a", "text": "Las revisiones pueden variar desde informales hasta formales." },
+        { "id": "b", "text": "Las revisiones por pares (peer reviews) son una técnica de prueba estática común." },
+        { "id": "c", "text": "Las revisiones son ineficaces si no implican la ejecución de código automatizado." },
+        { "id": "d", "text": "El éxito de una revisión depende de objetivos claros y preparación." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las revisiones son, por definición, pruebas estáticas, lo que significa que el código nunca se ejecuta. Su eficacia proviene del escrutinio humano lógico, no de la ejecución automatizada."
+    },
+    {
+      "id": "3.09",
+      "text": "Cuando se realiza un análisis estático del código fuente para encontrar desviaciones de los estándares de la empresa, ¿qué beneficio adicional directo se logra típicamente?",
+      "options": [
+        { "id": "a", "text": "El código se vuelve inmune a fallas de hardware." },
+        { "id": "b", "text": "Se mejora drásticamente la mantenibilidad y legibilidad del código para futuros desarrolladores." },
+        { "id": "c", "text": "Se garantiza que la base de datos no tenga cuellos de botella." },
+        { "id": "d", "text": "Los usuarios finales encontrarán la aplicación más estéticamente agradable." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Adherirse a los estándares de codificación mediante el análisis estático asegura que el código sea uniforme, predecible y más fácil de mantener durante su ciclo de vida."
+    },
+    {
+      "id": "3.10",
+      "text": "Un equipo de QA revisa los borradores de las historias de usuario tan pronto como están disponibles, antes de que el equipo de desarrollo las acepte. Esta es una manifestación directa de:",
+      "options": [
+        { "id": "a", "text": "Automatización de pruebas basada en la nube." },
+        { "id": "b", "text": "Buenas prácticas de prueba asociadas con el principio \"Shift-Left\"." },
+        { "id": "c", "text": "Pruebas de carga destructivas." },
+        { "id": "d", "text": "Pruebas dinámicas de caja negra." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Revisar los productos de trabajo de requisitos (como las historias de usuario) lo antes posible es el núcleo del Shift-Left, previniendo defectos antes de que comience el desarrollo."
+    },
+    {
+      "id": "4.01",
+      "text": "Un código de descuento es válido para montos de compra entre $50.00 y $200.00, ambos inclusive. Utilizando el **Análisis de Valores Límite de 2 valores**, ¿qué conjunto de entradas de prueba proporciona una cobertura límite óptima?",
+      "options": [
+        { "id": "a", "text": "$50.00, $200.00" },
+        { "id": "b", "text": "$49.99, $50.00, $200.00, $200.01" },
+        { "id": "c", "text": "$49.99, $50.00, $50.01, $199.99, $200.00, $200.01" },
+        { "id": "d", "text": "$50.00, $100.00, $200.00" }
+      ],
+      "correctOptionId": "b",
+      "justification": "El método de 2 valores prueba el límite exacto y el valor adyacente justo en el exterior (inválido). Para 50.00: 49.99 (inválido) y 50.00 (válido). Para 200.00: 200.00 (válido) y 200.01 (inválido)."
+    },
+    {
+      "id": "4.02",
+      "text": "Una contraseña alfanumérica debe tener entre 4 y 7 caracteres de longitud. Aplicando el **Análisis de Valores Límite de 3 valores** a la longitud de la contraseña, ¿qué conjunto de longitudes se debe probar?",
+      "options": [
+        { "id": "a", "text": "4, 7" },
+        { "id": "b", "text": "3, 4, 7, 8" },
+        { "id": "c", "text": "3, 4, 5, 6, 7, 8" },
+        { "id": "d", "text": "2, 4, 7, 9" }
+      ],
+      "correctOptionId": "c",
+      "justification": "El BVA de 3 valores prueba el límite, el valor inmediatamente inferior y el valor inmediatamente superior. Para 4: 3, 4, 5. Para 7: 6, 7, 8. Combinados: 3, 4, 5, 6, 7, 8."
+    },
+    {
+      "id": "4.03",
+      "text": "Un sistema de tránsito ofrece viajes gratis a niños menores de 5 años y adultos mayores de 65 años o más. Todos los demás pagan tarifa completa. Utilizando la Partición de Equivalencia, ¿cuántas particiones existen para la edad (asumiendo que la edad debe ser un número positivo realista)?",
+      "options": [
+        { "id": "a", "text": "2 (Gratis, Pagar)" },
+        { "id": "b", "text": "3 (Menor de 5, 5 a 64, 65 y mayor)" },
+        { "id": "c", "text": "4 (Inválida negativa, Menor de 5, 5-64, 65+)" },
+        { "id": "d", "text": "5 (Inválida negativa, Menor de 5, 5-64, 65+, Inválida edad excesiva)" }
+      ],
+      "correctOptionId": "d",
+      "justification": "EP estándar identifica particiones válidas E inválidas. Inválidas: <0. Válidas: 0-4, 5-64, 65-120 (aprox. máximo). Inválidas: >120. Por lo tanto, 3 particiones válidas y al menos 2 inválidas."
+    },
+    {
+      "id": "4.04",
+      "text": "¿Cuál es el principio fundamental detrás del Análisis de Valores Límite (BVA)?",
+      "options": [
+        { "id": "a", "text": "Los desarrolladores a menudo cometen errores lógicos de \"desplazamiento por uno\" (off-by-one) en los bordes de las particiones de equivalencia ordenadas." },
+        { "id": "b", "text": "Probar el centro exacto de una partición proporciona el mayor rendimiento de defectos." },
+        { "id": "c", "text": "Es la única técnica que puede lograr el 100% de cobertura de sentencias." },
+        { "id": "d", "text": "Depende enteramente de la intuición del probador." }
+      ],
+      "correctOptionId": "a",
+      "justification": "BVA se basa en la heurística de que los límites de las clases de equivalencia son altamente propensos a errores de implementación (ej., usar < en lugar de <=)."
+    },
+    {
+      "id": "4.05",
+      "text": "Para un campo de texto que acepta un número máximo de 10 caracteres, usando el método de BVA de 2 valores, ¿qué longitudes probaría para el límite superior?",
+      "options": [
+        { "id": "a", "text": "9, 10" },
+        { "id": "b", "text": "10, 11" },
+        { "id": "c", "text": "9, 10, 11" },
+        { "id": "d", "text": "0, 10" }
+      ],
+      "correctOptionId": "b",
+      "justification": "Para el límite superior de 10, el BVA de 2 valores dicta que se pruebe el límite en sí (10) y el valor marginalmente inválido más cercano por encima del límite (11)."
+    },
+    {
+      "id": "4.06",
+      "text": "Un juego de póquer de video especifica el comportamiento de transición desde \"Inicio\" hasta \"Fin\". Para cubrir cada secuencia única de hasta 3 estados / 2 transiciones, ¿qué se requiere?",
+      "options": [
+        { "id": "a", "text": "Cobertura de Todos los Estados (All states coverage)" },
+        { "id": "b", "text": "Coberura de Transiciones Válidas (Valid transitions coverage)" },
+        { "id": "c", "text": "Cobertura de Todas las Transiciones (All transitions coverage)" },
+        { "id": "d", "text": "Cobertura de Combinación de Estados" }
+      ],
+      "correctOptionId": "c",
+      "justification": "Este escenario corresponde a la cobertura de secuencias de transición. La cobertura de todas las transiciones asegura que se ejercite cada transición válida y los intentos de las inválidas."
+    },
+    {
+      "id": "4.07",
+      "text": "¿Qué métrica de cobertura se recomienda explícitamente para el software de misión crítica y de seguridad crítica cuando se utilizan pruebas de Transición de Estados?",
+      "options": [
+        { "id": "a", "text": "Cobertura de todos los estados." },
+        { "id": "b", "text": "Cobertura de transiciones válidas." },
+        { "id": "c", "text": "Cobertura completa de todas las transiciones (Full all transitions coverage)." },
+        { "id": "d", "text": "Cobertura de sentencias." }
+      ],
+      "correctOptionId": "c",
+      "justification": "La cobertura completa de todas las transiciones (que incluye forzar transiciones inválidas para asegurar que el sistema las maneje de manera segura) se requiere para sistemas críticos de alto riesgo."
+    },
+    {
+      "id": "4.08",
+      "text": "En una tabla de decisiones, si un sistema tiene 3 condiciones booleanas (entradas Verdadero/Falso), ¿cuál es el número máximo de reglas (columnas) distintas antes de cualquier optimización?",
+      "options": [
+        { "id": "a", "text": "3" },
+        { "id": "b", "text": "6" },
+        { "id": "c", "text": "8" },
+        { "id": "d", "text": "9" }
+      ],
+      "correctOptionId": "c",
+      "justification": "El número de combinaciones lógicas para condiciones booleanas es $2^n$. Para 3 condiciones, $2^3 = 8$ reglas posibles."
+    },
+    {
+      "id": "4.09",
+      "text": "En las Pruebas de Tablas de Decisiones, ¿qué representa una \"regla\"?",
+      "options": [
+        { "id": "a", "text": "Una combinación única de condiciones (entradas) que resulta en un conjunto específico de acciones (salidas)." },
+        { "id": "b", "text": "El marco legal que rige el desarrollo del software." },
+        { "id": "c", "text": "Una sola línea de código fuente." },
+        { "id": "d", "text": "La transición lógica entre dos estados estáticos." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Una regla en una tabla de decisiones (normalmente representada como una columna) es la combinación lógica específica de condiciones que desencadena una acción predefinida."
+    },
+    {
+      "id": "4.10",
+      "text": "Si una tabla de decisiones tiene ciertas condiciones que no afectan en absoluto la acción de salida dada una combinación específica, ¿cómo se representa esto para colapsar y optimizar la tabla?",
+      "options": [
+        { "id": "a", "text": "Con una letra 'X' indicando error." },
+        { "id": "b", "text": "Con un guión '-' indicando una condición \"no importa\" (don't care)." },
+        { "id": "c", "text": "Eliminando la columna por completo." },
+        { "id": "d", "text": "Aumentando exponencialmente el número de reglas." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Una condición que no afecta el resultado se designa como \"no importa\" (-), lo que permite a los probadores fusionar reglas múltiples en una sola columna optimizada, reduciendo casos de prueba redundantes."
+    },
+    {
+      "id": "4.11",
+      "text": "¿Qué afirmación sobre las métricas de cobertura de caja blanca es matemáticamente precisa?",
+      "options": [
+        { "id": "a", "text": "Lograr un 100% de cobertura de sentencias garantiza un 100% de cobertura de ramas." },
+        { "id": "b", "text": "El 100% de cobertura de ramas subsume el 100% de cobertura de sentencias." },
+        { "id": "c", "text": "La cobertura de ramas solo mide ramificaciones incondicionales." },
+        { "id": "d", "text": "La cobertura de sentencias se basa en las especificaciones externas del sistema." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La cobertura de ramas (ejercitar todos los resultados de decisiones Verdadero/Falso) es una métrica más estricta. Si el 100% de las ramas están cubiertas, el 100% de las sentencias están implícitamente cubiertas (subsumidas)."
+    },
+    {
+      "id": "4.12",
+      "text": "¿Qué define los \"Ataques de Fallos\" (Fault Attacks) en el contexto de las pruebas basadas en la experiencia?",
+      "options": [
+        { "id": "a", "text": "Pruebas de penetración automatizadas contra firewalls de red." },
+        { "id": "b", "text": "Crear listas estructuradas de posibles errores basados en fallos pasados y diseñar pruebas específicamente para exponerlos." },
+        { "id": "c", "text": "Hacer clic aleatoriamente en una interfaz de usuario sin ningún plan." },
+        { "id": "d", "text": "Probar únicamente los límites de un campo de entrada de datos." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Los ataques de fallos son una implementación sistemática de la suposición de errores, aprovechando la experiencia del probador para anticipar errores de los desarrolladores y patrones de defectos históricos."
+    },
+    {
+      "id": "4.13",
+      "text": "¿Bajo qué condiciones son más efectivas las Pruebas Exploratorias?",
+      "options": [
+        { "id": "a", "text": "Cuando las especificaciones son altamente detalladas y no existe presión de tiempo." },
+        { "id": "b", "text": "Al probar dispositivos médicos de seguridad crítica que requieren un 100% de trazabilidad documentada." },
+        { "id": "c", "text": "Cuando las especificaciones son inadecuadas, incompletas, o existe una presión de tiempo severa." },
+        { "id": "d", "text": "Cuando el equipo de pruebas tiene cero experiencia previa en el dominio." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las pruebas exploratorias (aprendizaje, diseño y ejecución simultáneos) prosperan en entornos ágiles y con limitaciones de tiempo o cuando falta documentación formal. Dependen en gran medida de la intuición del probador."
+    },
+    {
+      "id": "4.14",
+      "text": "¿Cómo se gestionan y auditan típicamente las Pruebas Exploratorias para mantener el enfoque y la responsabilidad?",
+      "options": [
+        { "id": "a", "text": "Utilizando casos de prueba estrictamente guionizados paso a paso." },
+        { "id": "b", "text": "Mediante Pruebas Basadas en Sesiones (Session-Based Testing) gobernadas por Estatutos de Prueba (Test Charters)." },
+        { "id": "c", "text": "Escribiendo planes de prueba detallados IEEE 829." },
+        { "id": "d", "text": "Mediante el uso de herramientas de análisis estático del código." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las pruebas basadas en sesiones utilizan cajas de tiempo (time-boxes) y estatutos de prueba (declaraciones de misión) para dar estructura y resultados medibles a las pruebas exploratorias."
+    },
+    {
+      "id": "4.15",
+      "text": "Un probador está analizando un fragmento de código que contiene una declaración `IF-ELSE` simple. ¿Cuántos casos de prueba se requieren como mínimo para lograr un 100% de Cobertura de Sentencias y cuántos para un 100% de Cobertura de Ramas?",
+      "options": [
+        { "id": "a", "text": "1 para Sentencias, 1 para Ramas." },
+        { "id": "b", "text": "1 para Sentencias, 2 para Ramas." },
+        { "id": "c", "text": "2 para Sentencias, 2 para Ramas." },
+        { "id": "d", "text": "2 para Sentencias, 1 para Ramas." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Debido a que hay un bloque ELSE explícito, tanto la ejecución del IF como la del ELSE contienen sentencias de código. Por lo tanto, se necesitan 2 pruebas para alcanzar todas las sentencias, lo cual simultáneamente ejercita ambas ramas lógicas."
+    },
+    {
+      "id": "4.16",
+      "text": "¿Cuál de los siguientes es un ejemplo de los Enfoques de Prueba Basados en la Colaboración introducidos explícitamente en el CTFL 4.0?",
+      "options": [
+        { "id": "a", "text": "Desarrollar tablas de decisiones matemáticas exhaustivas." },
+        { "id": "b", "text": "Escribir Historias de Usuario y Criterios de Aceptación colaborativamente (ej., usando ATDD o BDD)." },
+        { "id": "c", "text": "Realizar revisiones por pares ciegas (blind peer reviews) del código fuente." },
+        { "id": "d", "text": "Utilizar herramientas automatizadas de análisis de cobertura." }
+      ],
+      "correctOptionId": "b",
+      "justification": "CTFL 4.0 enfatiza la colaboración temprana entre desarrolladores, probadores y analistas de negocios para definir las expectativas de calidad por adelantado a través de Historias de Usuario y ATDD/BDD."
+    },
+    {
+      "id": "4.17",
+      "text": "Un segmento de código contiene 5 sentencias ejecutables sin ninguna declaración condicional (sin IF, WHILE, SWITCH). ¿Cuántos casos de prueba son necesarios para lograr el 100% de cobertura de sentencias?",
+      "options": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "5" }
+      ],
+      "correctOptionId": "b",
+      "justification": "Sin ramificaciones ni decisiones condicionales, una sola ejecución recorrerá linealmente de arriba a abajo, ejecutando las 5 sentencias con 1 caso de prueba."
+    },
+    {
+      "id": "4.18",
+      "text": "¿Qué debilidad principal presentan las técnicas de prueba de Caja Blanca en comparación con las de Caja Negra?",
+      "options": [
+        { "id": "a", "text": "Son demasiado fáciles de diseñar." },
+        { "id": "b", "text": "Pueden medir objetivamente el porcentaje de código ejercitado." },
+        { "id": "c", "text": "Pueden fallar por completo en detectar la omisión de los requisitos del usuario si el código que maneja ese requisito nunca se escribió." },
+        { "id": "d", "text": "Solo se pueden aplicar a aplicaciones móviles." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Las métricas de caja blanca se basan puramente en el código implementado. Si el desarrollador olvidó escribir una función requerida, el código existente podría tener un 100% de cobertura, pero el sistema seguiría siendo defectuoso por omisión."
+    },
+    {
+      "id": "4.19",
+      "text": "¿Qué rol desempeña la \"Suposición de Errores\" (Error Guessing) dentro de la estrategia de pruebas general de un equipo?",
+      "options": [
+        { "id": "a", "text": "Debe ser la única técnica utilizada para certificar sistemas de aviación críticos." },
+        { "id": "b", "text": "Es una técnica auxiliar altamente efectiva que complementa las técnicas formales de diseño para detectar problemas no evidentes." },
+        { "id": "c", "text": "Reemplaza la necesidad de realizar análisis de valores límite." },
+        { "id": "d", "text": "Solo se utiliza durante las pruebas unitarias por los desarrolladores." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La suposición de errores es pragmática y empírica, pero nunca es exhaustiva. Debe utilizarse para complementar técnicas estructuradas de caja negra y caja blanca."
+    },
+    {
+      "id": "4.20",
+      "text": "En ATDD (Desarrollo Guiado por Pruebas de Aceptación), ¿quiénes forman tradicionalmente los \"Tres Amigos\" que colaboran para definir los criterios de prueba?",
+      "options": [
+        { "id": "a", "text": "Tres desarrolladores principales (Senior)." },
+        { "id": "b", "text": "Representante comercial (Negocio), Desarrollador y Probador." },
+        { "id": "c", "text": "Scrum Master, Product Owner y Project Manager." },
+        { "id": "d", "text": "Tres probadores de caja negra independientes." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El modelo de los Tres Amigos en ATDD asegura que los requisitos se discutan y refinen desde tres perspectivas críticas: qué se necesita (Negocio), cómo construirlo (Desarrollo) y qué podría salir mal o cómo probarlo (Probador)."
+    },
+    {
+      "id": "5.01",
+      "text": "¿Qué enfatiza el concepto de la \"Pirámide de Pruebas\" (Test Pyramid) con respecto a la arquitectura de las suites de prueba automatizadas?",
+      "options": [
+        { "id": "a", "text": "La mayoría de las pruebas deben ser pruebas complejas de extremo a extremo (E2E) en la parte superior de la pirámide." },
+        { "id": "b", "text": "Las pruebas en la capa inferior (unitarias) deben ser pocas pero cubrir grandes funcionalidades." },
+        { "id": "c", "text": "La base debe consistir en un gran volumen de pruebas rápidas, aisladas y atómicas, con menos pruebas de interfaz de usuario (lentas) en la cima." },
+        { "id": "d", "text": "Todas las pruebas deben ejecutarse manualmente." }
+      ],
+      "correctOptionId": "c",
+      "justification": "La pirámide dicta que las pruebas de la capa inferior se ejecutan rápido, aíslan el código y son de fácil mantenimiento. Las pruebas de la capa superior (UI/E2E) son lentas, frágiles y deben minimizarse."
+    },
+    {
+      "id": "5.02",
+      "text": "Según los Cuadrantes de Prueba de Brian Marick, ¿qué cuadrante se centra en \"Pruebas orientadas al negocio que critican el producto\" (ej., pruebas Exploratorias y de Usabilidad)?",
+      "options": [
+        { "id": "a", "text": "Cuadrante 1 (Q1)" },
+        { "id": "b", "text": "Cuadrante 2 (Q2)" },
+        { "id": "c", "text": "Cuadrante 3 (Q3)" },
+        { "id": "d", "text": "Cuadrante 4 (Q4)" }
+      ],
+      "correctOptionId": "c",
+      "justification": "Q3 está orientado al negocio y a la crítica del producto. Q1 está orientado a la tecnología (unitarias). Q2 está orientado al negocio/soporte (funcionales). Q4 está orientado a la tecnología/crítica (rendimiento/seguridad)."
+    },
+    {
+      "id": "5.03",
+      "text": "¿Qué se documenta típicamente dentro de la sección \"Alcance de las Pruebas\" (Test Scope) de un Plan de Prueba?",
+      "options": [
+        { "id": "a", "text": "El flujo de trabajo exacto de resolución de defectos." },
+        { "id": "b", "text": "Las características del objeto de prueba que se van a probar y, explícitamente, aquellas características excluidas de las pruebas." },
+        { "id": "c", "text": "La tarifa horaria de los contratistas de pruebas." },
+        { "id": "d", "text": "La estructura del repositorio de código fuente." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Un Plan de Prueba actúa como una herramienta de comunicación. Definir qué está dentro del alcance y qué está fuera del alcance es crucial para la alineación de las partes interesadas y la asignación de recursos."
+    },
+    {
+      "id": "5.04",
+      "text": "Un gerente de pruebas utiliza datos históricos de proyectos anteriores y similares (ej., esfuerzo de desarrollo en horas vs esfuerzo de prueba en horas) para calcular el esfuerzo esperado para un nuevo proyecto. ¿Qué técnica de estimación se está aplicando?",
+      "options": [
+        { "id": "a", "text": "Extrapolación (Extrapolation)." },
+        { "id": "b", "text": "Estimación Wideband Delphi." },
+        { "id": "c", "text": "Estimación basada en proporciones/ratios (Estimation based on ratios)." },
+        { "id": "d", "text": "Estimación de tres puntos." }
+      ],
+      "correctOptionId": "c",
+      "justification": "El uso de métricas pasadas (datos históricos) para calcular el tiempo futuro en función de una variable conocida (ratios) es una técnica basada en proporciones."
+    },
+    {
+      "id": "5.05",
+      "text": "¿Qué técnica de estimación involucra la construcción de un consenso iterativo basado en expertos, mitigando el sesgo de anclaje de un individuo solitario?",
+      "options": [
+        { "id": "a", "text": "Estimación de tres puntos." },
+        { "id": "b", "text": "Estimación basada en ratios." },
+        { "id": "c", "text": "Wideband Delphi (ej. Planning Poker)." },
+        { "id": "d", "text": "Extrapolación." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Wideband Delphi (a menudo implementado como Planning Poker en Ágil) utiliza estimaciones iterativas ciegas de múltiples expertos para alcanzar un consenso democrático."
+    },
+    {
+      "id": "5.06",
+      "text": "Un equipo establece criterios como \"No quedan defectos de severidad crítica abiertos\" y \"El 100% de los casos de prueba planificados han sido ejecutados\". ¿De qué son ejemplos estos criterios?",
+      "options": [
+        { "id": "a", "text": "Definición de Preparado (Definition of Ready, DoR)." },
+        { "id": "b", "text": "Definición de Terminado (Definition of Done, DoD) / Criterios de Finalización." },
+        { "id": "c", "text": "Cronograma de Ejecución de Pruebas." },
+        { "id": "d", "text": "Mitigación de riesgos del proyecto." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La Definición de Terminado (DoD) dicta las puertas de calidad mensurables que debe pasar un producto para ser considerado finalizado y listo para su lanzamiento."
+    },
+    {
+      "id": "5.07",
+      "text": "¿Qué diferencia a un Riesgo del Proyecto (Project Risk) de un Riesgo del Producto/Calidad (Product Risk)?",
+      "options": [
+        { "id": "a", "text": "Los riesgos del proyecto se relacionan con la capacidad de entregar (ej., enfermedades del equipo, recortes de presupuesto); los riesgos del producto se relacionan con fallas operativas del software (ej., cálculos incorrectos)." },
+        { "id": "b", "text": "Los riesgos del proyecto solo se identifican durante las pruebas estáticas." },
+        { "id": "c", "text": "Los riesgos del producto afectan la línea de tiempo de desarrollo, mientras que los riesgos del proyecto afectan al usuario final." },
+        { "id": "d", "text": "No hay diferencia; se manejan usando exactamente las mismas métricas." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Los riesgos del proyecto ponen en peligro el éxito gerencial (presupuesto, cronograma, personal). Los riesgos del producto (calidad) ponen en peligro la integridad técnica y operativa del software."
+    },
+    {
+      "id": "5.08",
+      "text": "¿Cuál de los siguientes es el objetivo fundamental de la Gestión de Defectos (Defect Management)?",
+      "options": [
+        { "id": "a", "text": "Asignar responsabilidad legal a desarrolladores individuales por sus equivocaciones." },
+        { "id": "b", "text": "Garantizar que todos los defectos descubiertos sean rastreados, analizados, clasificados y resueltos (o aplazados deliberadamente) de manera eficiente y transparente." },
+        { "id": "c", "text": "Ocultar defectos a las partes interesadas externas." },
+        { "id": "d", "text": "Evitar la fase de pruebas de confirmación." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La gestión de defectos asegura la visibilidad, categorización (severidad/prioridad) y el progreso adecuado del ciclo de vida de cada anomalía encontrada."
+    },
+    {
+      "id": "5.09",
+      "text": "¿Cuál es el propósito del \"Registro de Riesgos\" (Risk Register) en la Planificación de Pruebas?",
+      "options": [
+        { "id": "a", "text": "Listar todos los desarrolladores que trabajan en el proyecto y su nivel de experiencia." },
+        { "id": "b", "text": "Rastrear los riesgos identificados, su probabilidad, su impacto y sus correspondientes estrategias de mitigación (Pruebas basadas en riesgos)." },
+        { "id": "c", "text": "Registrar el tiempo de ejecución exacto de las suites de automatización." },
+        { "id": "d", "text": "Inventariar el hardware físico de prueba disponible." }
+      ],
+      "correctOptionId": "b",
+      "justification": "El Registro de Riesgos es el artefacto central en las pruebas basadas en riesgos, utilizado para monitorear y controlar continuamente las amenazas a la calidad."
+    },
+    {
+      "id": "5.10",
+      "text": "Un informe de defecto indica: \"La aplicación de banca móvil se bloquea y se cierra inmediatamente al iniciarse, impidiendo por completo cualquier inicio de sesión u otra prueba posterior\". ¿Cuáles son las clasificaciones de Severidad (Impacto técnico) y Prioridad (Urgencia de resolución) más probables?",
+      "options": [
+        { "id": "a", "text": "Baja Severidad, Alta Prioridad." },
+        { "id": "b", "text": "Alta Severidad, Baja Prioridad." },
+        { "id": "c", "text": "Alta Severidad, Alta Prioridad." },
+        { "id": "d", "text": "Baja Severidad, Baja Prioridad." }
+      ],
+      "correctOptionId": "c",
+      "justification": "El fallo es crítico para la funcionalidad base (Alta Severidad) y bloquea todo el trabajo restante, lo que requiere una resolución inmediata por parte de desarrollo (Alta Prioridad)."
+    },
+    {
+      "id": "5.11",
+      "text": "Una empresa impone que ningún caso de prueba automatizado puede tardar más de 2 segundos en ejecutarse. ¿Qué métrica se vería directamente beneficiada por esta restricción?",
+      "options": [
+        { "id": "a", "text": "La retroalimentación rápida (fast feedback) hacia el equipo de desarrollo en los conductos CI/CD." },
+        { "id": "b", "text": "El número total de defectos críticos inyectados en la base de código." },
+        { "id": "c", "text": "La probabilidad de ocurrencia de un riesgo del proyecto como recortes de presupuesto." },
+        { "id": "d", "text": "El cumplimiento normativo de privacidad de datos." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Pruebas rápidas (la base de la pirámide) reducen el tiempo de compilación y retroalimentación, permitiendo que los equipos ágiles integren código más rápido y con mayor seguridad."
+    },
+    {
+      "id": "5.12",
+      "text": "En el contexto del control de pruebas (Test Control), ¿qué acción es apropiada si el equipo observa que la ejecución de la prueba está significativamente retrasada respecto al cronograma?",
+      "options": [
+        { "id": "a", "text": "Reclasificar inmediatamente todos los defectos abiertos como \"baja prioridad\"." },
+        { "id": "b", "text": "Detener todas las pruebas dinámicas y lanzar a producción basándose únicamente en pruebas estáticas." },
+        { "id": "c", "text": "Ajustar la estrategia re-priorizando las pruebas utilizando un enfoque basado en riesgos (Risk-based testing) para enfocar el tiempo restante en las áreas críticas." },
+        { "id": "d", "text": "Eliminar permanentemente la necesidad de realizar pruebas de regresión." }
+      ],
+      "correctOptionId": "c",
+      "justification": "El control de pruebas implica tomar acciones correctivas basadas en métricas de monitoreo. Enfocarse en el riesgo maximiza la calidad cuando el tiempo es severamente limitado."
+    },
+    {
+      "id": "5.13",
+      "text": "¿Qué información es esencial incluir en un informe de defecto de alta calidad (Bug Report) para facilitar el trabajo de depuración del desarrollador?",
+      "options": [
+        { "id": "a", "text": "Pasos detallados de reproducción, resultados reales (incluyendo registros/capturas) y los resultados esperados según la base de prueba." },
+        { "id": "b", "text": "Únicamente una captura de pantalla del error sin contexto de texto." },
+        { "id": "c", "text": "El nombre del desarrollador que se asume introdujo el error originalmente." },
+        { "id": "d", "text": "El costo financiero estimado de solucionar el error." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Un reporte eficaz requiere pasos mecánicos reproducibles, junto con la comparación clara de lo que sucedió versus lo que dictaban los requisitos."
+    },
+    {
+      "id": "5.14",
+      "text": "¿Cuál de las siguientes afirmaciones describe la diferencia entre \"Definición de Preparado\" (DoR) y \"Definición de Terminado\" (DoD)?",
+      "options": [
+        { "id": "a", "text": "DoR dicta cuándo un elemento tiene suficiente calidad para comenzar el desarrollo/pruebas; DoD dicta cuándo ha cumplido los criterios de aceptación y calidad para considerarse completo." },
+        { "id": "b", "text": "DoR se aplica solo a pruebas automatizadas; DoD se aplica a manuales." },
+        { "id": "c", "text": "DoR es responsabilidad del probador; DoD es responsabilidad del Product Owner en exclusividad." },
+        { "id": "d", "text": "No hay diferencia técnica entre ambas." }
+      ],
+      "correctOptionId": "a",
+      "justification": "DoR asegura que la historia de usuario esté lista para ser trabajada (ej. sin ambigüedades). DoD asegura que el trabajo esté lo suficientemente pulido y probado para ser entregado."
+    },
+    {
+      "id": "5.15",
+      "text": "¿Por qué un equipo de pruebas ágil descentralizaría la Gestión de Configuración (Configuration Management)?",
+      "options": [
+        { "id": "a", "text": "Para aumentar el número de defectos de integración." },
+        { "id": "b", "text": "Ningún equipo debería descentralizar esto; el CM rastrea las versiones exactas de los elementos de prueba y el testware, garantizando la repetibilidad e integridad del entorno." },
+        { "id": "c", "text": "Para reducir el costo de las licencias de software de base de datos." },
+        { "id": "d", "text": "Para que los probadores puedan cambiar el código fuente en producción sin supervisión." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La gestión de la configuración es esencial e innegociable. Mantiene el control de versiones de lo que se está probando, garantizando que un fallo reportado sea reproducible en el entorno correcto."
+    },
+    {
+      "id": "6.01",
+      "text": "¿Cuál es un beneficio significativo y tangible de implementar la automatización de pruebas?",
+      "options": [
+        { "id": "a", "text": "Permite el abandono completo e inmediato de las pruebas exploratorias manuales." },
+        { "id": "b", "text": "Aumenta la eficiencia del proceso de prueba al ejecutar pruebas repetitivas de regresión más rápido y con mayor consistencia que los humanos, reduciendo el error manual." },
+        { "id": "c", "text": "Garantiza la ausencia absoluta de defectos en el producto final." },
+        { "id": "d", "text": "Las herramientas automatizadas son capaces de redactar sus propios requisitos de usuario." }
+      ],
+      "correctOptionId": "b",
+      "justification": "La automatización sobresale en la velocidad de la repetición y la consistencia matemática, liberando a los probadores humanos para realizar pruebas exploratorias complejas y creativas."
+    },
+    {
+      "id": "6.02",
+      "text": "¿Cuál de los siguientes representa un riesgo operativo importante al introducir la automatización de pruebas?",
+      "options": [
+        { "id": "a", "text": "El marco de automatización y los scripts de prueba requieren un mantenimiento continuo; si se descuidan, se vuelven inútiles y se rompen a medida que el software evoluciona." },
+        { "id": "b", "text": "Las pruebas automatizadas se ejecutan demasiado rápido para que las partes interesadas las observen visualmente." },
+        { "id": "c", "text": "Las herramientas de prueba impiden físicamente que los probadores encuentren defectos de gravedad crítica." },
+        { "id": "d", "text": "Las pruebas automatizadas no se pueden integrar en las canalizaciones de Integración Continua (CI/CD)." }
+      ],
+      "correctOptionId": "a",
+      "justification": "El \"costo oculto\" o riesgo de la automatización es el mantenimiento. Los cambios superficiales en el software con frecuencia rompen pruebas automatizadas frágiles, requiriendo un mantenimiento constante de los scripts."
+    },
+    {
+      "id": "6.03",
+      "text": "Un equipo utiliza una herramienta para generar sintéticamente perfiles de usuario masivos con números de seguridad social enmascarados, poblando una base de datos antes de ejecutar una suite de regresión. ¿Qué tipo de herramienta es esta?",
+      "options": [
+        { "id": "a", "text": "Herramienta de predicción de errores (Bug prediction tool)." },
+        { "id": "b", "text": "Herramienta de preparación de datos de prueba (Test data preparation tool)." },
+        { "id": "c", "text": "Herramienta de integración continua (CI tool)." },
+        { "id": "d", "text": "Herramienta de pruebas de rendimiento (Performance tool)." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las herramientas de preparación de datos de prueba (test data tools) generan, ofuscan, enmascaran o extraen los datos necesarios para alimentar y ejecutar casos de prueba específicos con seguridad."
+    },
+    {
+      "id": "6.04",
+      "text": "¿De qué manera crítica apoya una herramienta de Integración Continua (CI) el proceso de prueba moderna?",
+      "options": [
+        { "id": "a", "text": "Generando automáticamente modelos de prueba teóricos sin intervención humana." },
+        { "id": "b", "text": "Desencadenando ejecuciones automatizadas de compilación y prueba cada vez que un desarrollador confirma (commits) código en un repositorio, garantizando una retroalimentación rápida." },
+        { "id": "c", "text": "Reemplazando la necesidad de un sistema de seguimiento y gestión de defectos." },
+        { "id": "d", "text": "Arreglando automáticamente los errores de compilación lógica y de sintaxis." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las herramientas de CI (como Jenkins, GitLab CI o GitHub Actions) orquestan la ejecución ininterrumpida de suites de prueba automatizadas (generalmente la base de la Pirámide) tras cada integración de código."
+    },
+    {
+      "id": "6.05",
+      "text": "¿Qué escenario justifica de manera más evidente la inversión financiera en una herramienta de pruebas de rendimiento (Performance/Load Testing tool)?",
+      "options": [
+        { "id": "a", "text": "Comprobar si el color de la fuente y el diseño css coinciden con las pautas de marca corporativa." },
+        { "id": "b", "text": "Verificar que un carrito de compras de comercio electrónico pueda manejar 10,000 sesiones de usuarios simultáneos durante una venta de Black Friday sin colapsar." },
+        { "id": "c", "text": "Encontrar código inalcanzable (muerto) en un módulo heredado a través del análisis de flujo." },
+        { "id": "d", "text": "Rastrear el estado del ciclo de vida de los errores reportados a lo largo del tiempo." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Las herramientas de carga/rendimiento simulan volúmenes hiperbólicos de tráfico o uso concurrente que es física y operativamente imposible de reproducir de manera manual."
+    },
+    {
+      "id": "6.06",
+      "text": "Cuando se selecciona una nueva herramienta de prueba para una organización, ¿cuál debe ser un paso inicial antes del despliegue masivo a todos los equipos?",
+      "options": [
+        { "id": "a", "text": "Realizar una prueba piloto (Proof of Concept) con un equipo pequeño para evaluar si la herramienta se adapta al proceso existente y proporciona el valor esperado." },
+        { "id": "b", "text": "Despedir a todos los probadores manuales inmediatamente." },
+        { "id": "c", "text": "Requerir que el proveedor de la herramienta reescriba el código fuente de la organización para que encaje con la herramienta." },
+        { "id": "d", "text": "Implementar la herramienta sin formación para evaluar la intuición de la interfaz." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Una prueba piloto aísla el riesgo de la inversión, permitiendo evaluar la curva de aprendizaje, la compatibilidad con el entorno local y las métricas de beneficio sin interrumpir a toda la organización."
+    }
+  ]
+}

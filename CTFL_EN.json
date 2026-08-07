@@ -1,0 +1,1037 @@
+{
+  "title": "ISTQB CTFL 4.0 Practice Question Bank",
+  "questions": [
+    {
+      "id": "1.01",
+      "text": "Which of the following represents a typical test objective?",
+      "options": [
+        { "id": "a", "text": "Prevent the introduction of defects into the source code by modifying developer habits." },
+        { "id": "b", "text": "Prove that there are no uncorrected defects left in the system." },
+        { "id": "c", "text": "Reduce the level of risk and build confidence in software quality." },
+        { "id": "d", "text": "Fix defects identified during dynamic execution." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Testing reduces risk and builds confidence. Proving there are no defects is impossible (Principle 1). Fixing defects is debugging."
+    },
+    {
+      "id": "1.02",
+      "text": "How does testing differ from debugging?",
+      "options": [
+        { "id": "a", "text": "Testing removes failures; debugging removes defects." },
+        { "id": "b", "text": "Testing identifies defects and failures; debugging reproduces, diagnoses, and fixes defects." },
+        { "id": "c", "text": "Testing is a preventive process; debugging is a corrective process." },
+        { "id": "d", "text": "Dynamic testing identifies root causes, while debugging prevents failures." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Testing reveals failures (dynamic) or defects (static). Debugging is the subsequent developer activity to analyze and resolve the defect."
+    },
+    {
+      "id": "1.03",
+      "text": "Which statement accurately describes the relationship between errors, defects, and failures?",
+      "options": [
+        { "id": "a", "text": "Environmental conditions cause errors, which lead to failures." },
+        { "id": "b", "text": "A human makes an error, producing a defect, which can result in a failure during execution." },
+        { "id": "c", "text": "Failures in documentation lead to defects in running software." },
+        { "id": "d", "text": "Defects are flawed thoughts that result in errors in the code." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Humans make errors (mistakes) that introduce defects (faults/bugs) into work products. Executing defective code causes failures."
+    },
+    {
+      "id": "1.04",
+      "text": "A Product Owner demands that the testing team find all bugs before software release. Which testing principle refutes this demand?",
+      "options": [
+        { "id": "a", "text": "Defect clustering." },
+        { "id": "b", "text": "Testing shows the presence of defects, not their absence." },
+        { "id": "c", "text": "Absence of errors fallacy." },
+        { "id": "d", "text": "Pesticide paradox." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Testing can show that defects are present, but cannot prove their absolute absence. Exhaustive testing is impossible."
+    },
+    {
+      "id": "1.05",
+      "text": "What is the main difference between Quality Assurance (QA) and Quality Control (QC)?",
+      "options": [
+        { "id": "a", "text": "QA is corrective; QC is preventive." },
+        { "id": "b", "text": "QA focuses on process implementation and improvement; QC is product-oriented and corrective." },
+        { "id": "c", "text": "Testing is simply another term for QA." },
+        { "id": "d", "text": "QC focuses solely on static testing." }
+      ],
+      "correctOptionId": "b",
+      "justification": "QA is process-oriented and preventive. QC is product-oriented. Testing is a form of Quality Control."
+    },
+    {
+      "id": "1.06",
+      "text": "Which activity belongs to the \"Test Implementation\" phase of the testing process?",
+      "options": [
+        { "id": "a", "text": "Evaluate the test basis to determine its testability." },
+        { "id": "b", "text": "Identify test conditions." },
+        { "id": "c", "text": "Create test data and test scripts." },
+        { "id": "d", "text": "Execute automated test suites." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Creating data, test suites, and test scripts is Test Implementation. Evaluating the test basis and identifying conditions is Test Analysis."
+    },
+    {
+      "id": "1.07",
+      "text": "What is a fundamental principle of the \"Whole Team Approach\"?",
+      "options": [
+        { "id": "a", "text": "Every team member must have a testing certification." },
+        { "id": "b", "text": "Any member with the necessary skills can perform testing tasks, sharing responsibility for quality." },
+        { "id": "c", "text": "Developers test their own code without peer review to increase speed." },
+        { "id": "d", "text": "Testers work in isolation to maintain objectivity." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The Whole Team Approach advocates that quality is a shared responsibility, and anyone with the required skills can execute testing tasks."
+    },
+    {
+      "id": "1.08",
+      "text": "What is a recognized benefit of independent testing?",
+      "options": [
+        { "id": "a", "text": "It eliminates developer responsibility for software quality." },
+        { "id": "b", "text": "It is faster and cheaper than developer-led testing." },
+        { "id": "c", "text": "Independent testers recognize different types of failures and question hidden assumptions." },
+        { "id": "d", "text": "It eliminates the need for communication between developers and testers." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Independence allows testers to challenge assumptions made during development and detect defects that the original authors overlooked."
+    },
+    {
+      "id": "1.09",
+      "text": "What does the \"Defect Clustering\" principle imply?",
+      "options": [
+        { "id": "a", "text": "Defects are evenly distributed across all system components." },
+        { "id": "b", "text": "A small number of modules usually contains the majority of the discovered defects." },
+        { "id": "c", "text": "Tests must be continuously updated to find new defects." },
+        { "id": "d", "text": "Testing should start as early as possible in the life cycle." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Defect clustering follows the Pareto principle, where a small subset of modules is responsible for the majority of operational failures."
+    },
+    {
+      "id": "1.10",
+      "text": "During a project review, the team realizes they built a highly reliable system that does not meet the actual business needs of the users. Which principle highlights this issue?",
+      "options": [
+        { "id": "a", "text": "Tests wear out (Pesticide paradox)." },
+        { "id": "b", "text": "Absence of errors fallacy." },
+        { "id": "c", "text": "Early testing." },
+        { "id": "d", "text": "Testing is context-dependent." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Finding and fixing defects is useless if the built system is unusable or does not meet the true needs and expectations of the users."
+    },
+    {
+      "id": "1.11",
+      "text": "What generic skill is critically specific for testers to communicate defects to developers without causing a defensive attitude?",
+      "options": [
+        { "id": "a", "text": "Technical competence in coding." },
+        { "id": "b", "text": "Interpersonal and communication skills." },
+        { "id": "c", "text": "Mathematical logic." },
+        { "id": "d", "text": "Database administration." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Communication skills are vital to ensure defects are reported constructively and to foster collaboration within the team."
+    },
+    {
+      "id": "1.12",
+      "text": "Traceability between the test basis and testware serves which primary purpose?",
+      "options": [
+        { "id": "a", "text": "Completely automate test execution." },
+        { "id": "b", "text": "Support coverage evaluation, impact analysis, and status reporting." },
+        { "id": "c", "text": "Replace the need for a formal test plan." },
+        { "id": "d", "text": "Prove that debugging was successful." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Traceability links requirements to test cases, allowing for coverage evaluation, analyzing the impact of changes, and reporting metrics."
+    },
+    {
+      "id": "1.13",
+      "text": "Which of the following is considered a root cause rather than an error, defect, or failure?",
+      "options": [
+        { "id": "a", "text": "A missing semicolon in the source code." },
+        { "id": "b", "text": "A system crash when a user enters a negative number." },
+        { "id": "c", "text": "A developer's lack of training in secure coding practices." },
+        { "id": "d", "text": "A typo in the requirements specification document." }
+      ],
+      "correctOptionId": "c",
+      "justification": "The root cause is the fundamental systemic problem (lack of training). The error is the human mistake, the defect is the flaw in the code, and the crash is the operational failure."
+    },
+    {
+      "id": "1.14",
+      "text": "A tester executing an exploratory session discovers an unhandled exception. What has the tester identified?",
+      "options": [
+        { "id": "a", "text": "A root cause." },
+        { "id": "b", "text": "A failure." },
+        { "id": "c", "text": "An error." },
+        { "id": "d", "text": "A process deficiency." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Executing the software and observing an unexpected result (unhandled exception) is identifying a failure. The failure is caused by an underlying defect."
+    },
+    {
+      "id": "1.15",
+      "text": "Which of the following is NOT an activity typically associated with the Test Completion phase?",
+      "options": [
+        { "id": "a", "text": "Archiving the testware for future use." },
+        { "id": "b", "text": "Handing over the testware to the maintenance team." },
+        { "id": "c", "text": "Identifying test conditions based on the test basis." },
+        { "id": "d", "text": "Creating a test completion report." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Identifying test conditions occurs during Test Analysis, not Test Completion."
+    },
+    {
+      "id": "1.16",
+      "text": "A testing team decides to reuse the exact same test cases for 5 years without any modifications. They find fewer and fewer defects. Which principle are they facing?",
+      "options": [
+        { "id": "a", "text": "Early testing." },
+        { "id": "b", "text": "Pesticide paradox (Tests wear out)." },
+        { "id": "c", "text": "Defect clustering." },
+        { "id": "d", "text": "Testing is context-dependent." }
+      ],
+      "correctOptionId": "b",
+      "justification": "If the same tests are continuously repeated, they will eventually stop finding new defects, requiring tests to be reviewed and updated."
+    },
+    {
+      "id": "1.17",
+      "text": "What aspect best distinguishes a quality assurance (QA) audit from a system testing (QC) session?",
+      "options": [
+        { "id": "a", "text": "The audit verifies if coding standards were followed; system testing executes the product to find failures." },
+        { "id": "b", "text": "The audit executes automated test cases; system testing is always manual." },
+        { "id": "c", "text": "The audit is performed by developers; testing is performed by end-users." },
+        { "id": "d", "text": "There is no difference; both are corrective approaches." }
+      ],
+      "correctOptionId": "a",
+      "justification": "QA (audits, process reviews) verifies that prevention processes are followed. QC (system testing) evaluates the resulting product."
+    },
+    {
+      "id": "1.18",
+      "text": "What is the main implication of the \"Testing is context-dependent\" principle?",
+      "options": [
+        { "id": "a", "text": "All software projects must use the same set of automation tools." },
+        { "id": "b", "text": "An e-commerce website will be tested differently than an airplane flight control system." },
+        { "id": "c", "text": "The context dictates that exploratory testing should never be used in financial systems." },
+        { "id": "d", "text": "Testing is only necessary in high-risk contexts." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Different applications have different risk profiles, legal requirements, and user expectations, which demand distinct testing methodologies."
+    },
+    {
+      "id": "1.19",
+      "text": "Which task belongs to the \"Test Planning\" activity?",
+      "options": [
+        { "id": "a", "text": "Writing test automation scripts." },
+        { "id": "b", "text": "Determining the test approach and estimating the required effort." },
+        { "id": "c", "text": "Comparing actual results with expected results." },
+        { "id": "d", "text": "Configuring the test environment." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Planning involves defining test objectives, approach, resources, and effort estimation."
+    },
+    {
+      "id": "1.20",
+      "text": "When checking if traceability is complete, which critical relationship is being confirmed?",
+      "options": [
+        { "id": "a", "text": "That each developer has logged their working hours." },
+        { "id": "b", "text": "That each requirement has associated test cases and recorded results, bidirectionally." },
+        { "id": "c", "text": "That the source code compiles without warnings." },
+        { "id": "d", "text": "That testers operate independently from developers." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Bidirectional traceability ensures that the origin of each test is justified by a requirement, and that each requirement is covered by tests."
+    },
+    {
+      "id": "2.01",
+      "text": "Which of the following is a fundamental characteristic of good testing practices in all SDLC models?",
+      "options": [
+        { "id": "a", "text": "Dynamic testing always begins before coding is completed." },
+        { "id": "b", "text": "Every development activity has its corresponding testing activity." },
+        { "id": "c", "text": "Independent testing teams are only used in sequential (Waterfall) models." },
+        { "id": "d", "text": "User acceptance testing is performed by developers." }
+      ],
+      "correctOptionId": "b",
+      "justification": "A universal good practice is that each development phase is paired with a corresponding testing activity (e.g., requirements analysis is paired with system test planning)."
+    },
+    {
+      "id": "2.02",
+      "text": "What is the core philosophy of the \"Shift-Left\" approach in software testing?",
+      "options": [
+        { "id": "a", "text": "Moving all testing activities to the final phase before deployment." },
+        { "id": "b", "text": "Delaying test design until the software is fully coded." },
+        { "id": "c", "text": "Performing testing activities, such as static analysis and specification reviews, earlier in the SDLC." },
+        { "id": "d", "text": "Shifting testing responsibility entirely to the operations team." }
+      ],
+      "correctOptionId": "c",
+      "justification": "The Shift-Left approach integrates testing into the early stages of the lifecycle to identify defects when they are cheaper and easier to fix."
+    },
+    {
+      "id": "2.03",
+      "text": "Which development methodology uses a natural language (Given/When/Then) to express software behavior?",
+      "options": [
+        { "id": "a", "text": "Test-Driven Development (TDD)" },
+        { "id": "b", "text": "Acceptance Test-Driven Development (ATDD)" },
+        { "id": "c", "text": "Behavior-Driven Development (BDD)" },
+        { "id": "d", "text": "Session-Based Testing" }
+      ],
+      "correctOptionId": "c",
+      "justification": "BDD relies on natural language (Given/When/Then) to bridge the communication gap between technical and business stakeholders."
+    },
+    {
+      "id": "2.04",
+      "text": "What distinguishes Regression Testing from Confirmation Testing?",
+      "options": [
+        { "id": "a", "text": "Regression verifies if a defect was successfully fixed; confirmation ensures no new defects were introduced." },
+        { "id": "b", "text": "Confirmation verifies the correction of a defect; regression ensures that changes have not caused adverse side effects in the rest of the system." },
+        { "id": "c", "text": "Regression testing is only performed in production environments." },
+        { "id": "d", "text": "Confirmation testing is a type of static testing." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Confirmation (re-testing) verifies that the specific defect is resolved. Regression ensures that the rest of the system remains intact after the change."
+    },
+    {
+      "id": "2.05",
+      "text": "How does the implementation of DevOps influence testing?",
+      "options": [
+        { "id": "a", "text": "It eliminates the need for manual exploratory testing." },
+        { "id": "b", "text": "It completely isolates the development team from the operations team." },
+        { "id": "c", "text": "It creates synergy between development and operations, enabling fast feedback, CI/CD, and stable test environments." },
+        { "id": "d", "text": "It restricts testing to the production environment only." }
+      ],
+      "correctOptionId": "c",
+      "justification": "DevOps focuses on CI/CD pipelines, increasing automation, fostering fast feedback loops, and supporting Shift-Left practices."
+    },
+    {
+      "id": "2.06",
+      "text": "For what main purpose are retrospectives conducted in an Agile environment?",
+      "options": [
+        { "id": "a", "text": "To assign blame for defects that made it to production." },
+        { "id": "b", "text": "To estimate the cost of the next release." },
+        { "id": "c", "text": "To discuss successes, challenges, and continuous process improvements for future iterations." },
+        { "id": "d", "text": "To execute final user acceptance testing." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Retrospectives are Agile process improvement mechanisms focused on lessons learned and optimizing team workflows."
+    },
+    {
+      "id": "2.07",
+      "text": "What triggers the need to perform Maintenance Testing?",
+      "options": [
+        { "id": "a", "text": "The initial creation of the software requirements specification." },
+        { "id": "b", "text": "Modifications, migrations, or the retirement of software in a live production environment." },
+        { "id": "c", "text": "The decision to adopt a new test automation framework." },
+        { "id": "d", "text": "The start of a new Agile sprint for a greenfield project." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Maintenance testing is triggered by changes to existing operational software, including patches, migrations, or system decommissioning."
+    },
+    {
+      "id": "2.08",
+      "text": "Which statement about test levels is correct?",
+      "options": [
+        { "id": "a", "text": "Unit testing validates the entire system against user requirements." },
+        { "id": "b", "text": "Integration testing only occurs between hardware components." },
+        { "id": "c", "text": "Different test levels have specific objectives to manage redundancy and focus on appropriate types of test objects." },
+        { "id": "d", "text": "Acceptance testing is mainly executed by the lead developer." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Test levels (Component, Integration, System, Acceptance) may overlap slightly but maintain distinct objectives to ensure comprehensive coverage without wasted effort."
+    },
+    {
+      "id": "2.09",
+      "text": "In an iterative development model, when do test analysis and design typically begin?",
+      "options": [
+        { "id": "a", "text": "Only after the system has been deployed to production." },
+        { "id": "b", "text": "During the corresponding development phase of the current iteration." },
+        { "id": "c", "text": "Exclusively during the final iteration of the project." },
+        { "id": "d", "text": "Before business requirements have been gathered." }
+      ],
+      "correctOptionId": "b",
+      "justification": "To support early feedback, test analysis and design begin in tandem with the corresponding development activities of that same iteration."
+    },
+    {
+      "id": "2.10",
+      "text": "A team writes automated unit tests based on acceptance criteria *before* writing the application code. Then, the code is developed specifically to pass these tests. This describes:",
+      "options": [
+        { "id": "a", "text": "Maintenance Testing." },
+        { "id": "b", "text": "Acceptance Test-Driven Development (ATDD)." },
+        { "id": "c", "text": "Exploratory Testing." },
+        { "id": "d", "text": "Waterfall Model." }
+      ],
+      "correctOptionId": "b",
+      "justification": "ATDD derives tests from acceptance criteria before implementation, driving and guiding the development process."
+    },
+    {
+      "id": "2.11",
+      "text": "What is the main objective of Component Testing (Unit Testing)?",
+      "options": [
+        { "id": "a", "text": "Validate that the end-to-end system meets business requirements." },
+        { "id": "b", "text": "Isolate and individually test the smallest testable parts of the software for defects in internal logic." },
+        { "id": "c", "text": "Test the interaction between third-party system interfaces." },
+        { "id": "d", "text": "Evaluate the usability and aesthetics of the user interface." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Component testing evaluates individual functions or classes (white-box) to ensure core logic works correctly before integration."
+    },
+    {
+      "id": "2.12",
+      "text": "In the context of the V-Model, which test level corresponds directly to the architectural design phase?",
+      "options": [
+        { "id": "a", "text": "Component testing." },
+        { "id": "b", "text": "System integration testing." },
+        { "id": "c", "text": "User acceptance testing." },
+        { "id": "d", "text": "Maintenance testing." }
+      ],
+      "correctOptionId": "b",
+      "justification": "In the V-model, the system architecture defines how modules will be assembled, which is verified through system integration testing."
+    },
+    {
+      "id": "2.13",
+      "text": "Which of the following statements best describes Test-Driven Development (TDD)?",
+      "options": [
+        { "id": "a", "text": "Testers write all test scripts after coding is complete." },
+        { "id": "b", "text": "Automated tests initially fail, then application code is written to make the test pass, followed by refactoring." },
+        { "id": "c", "text": "Business users write user stories that are translated into legacy code." },
+        { "id": "d", "text": "Testing is performed solely in the production environment." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The TDD cycle is Red-Green-Refactor: write a failing test, write the minimum code to pass it, and then refactor to improve code quality."
+    },
+    {
+      "id": "2.14",
+      "text": "What is an Impact Analysis in the context of maintenance testing?",
+      "options": [
+        { "id": "a", "text": "Evaluating the financial impact of hiring a new test manager." },
+        { "id": "b", "text": "Determining which parts of the existing system may be inadvertently affected by a proposed change, to select the appropriate regression tests." },
+        { "id": "c", "text": "Analyzing the impact of a physical hardware system falling to the ground." },
+        { "id": "d", "text": "Estimating the impact of not using an automation framework." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Impact analysis identifies the architectural dependencies of a change to ensure regression testing effort is properly targeted."
+    },
+    {
+      "id": "2.15",
+      "text": "Why might the Shift-Left principle require greater effort in the initial stages of a project?",
+      "options": [
+        { "id": "a", "text": "Because it requires hiring end users to do the testing." },
+        { "id": "b", "text": "Because it requires the software to be coded twice." },
+        { "id": "c", "text": "Because it involves rigorous static reviews, specification analysis, and test creation before the code exists." },
+        { "id": "d", "text": "Because it prevents the use of open-source automation tools." }
+      ],
+      "correctOptionId": "c",
+      "justification": "While it saves money long-term by preventing severe dynamic defects, Shift-Left requires an upfront time investment to review documents and create test frameworks early."
+    },
+    {
+      "id": "3.01",
+      "text": "Which of the following defects is significantly easier to find through static testing rather than dynamic testing?",
+      "options": [
+        { "id": "a", "text": "Memory leaks that occur under massive concurrent user load." },
+        { "id": "b", "text": "Inconsistencies in requirements, ambiguities, and deviations from coding standards." },
+        { "id": "c", "text": "Synchronization issues caused by network latency." },
+        { "id": "d", "text": "Unhandled exceptions triggered by physical hardware failures." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Static testing excels at finding omissions, dead code, architectural design issues, and standards violations before it is possible to execute the code."
+    },
+    {
+      "id": "3.02",
+      "text": "What is the main economic benefit of implementing early static testing?",
+      "options": [
+        { "id": "a", "text": "It completely eliminates the need for dynamic testing." },
+        { "id": "b", "text": "It detects defects early, drastically reducing the cost of fixing them and preventing the propagation of failures." },
+        { "id": "c", "text": "It allows testers to evaluate system performance at runtime." },
+        { "id": "d", "text": "It guarantees 100% statement coverage." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The core economic argument for static testing is that finding defects in documents or source code prevents them from becoming costly dynamic failures later."
+    },
+    {
+      "id": "3.03",
+      "text": "Which of the following is considered a work product that can undergo static testing?",
+      "options": [
+        { "id": "a", "text": "The execution flow of a compiled binary." },
+        { "id": "b", "text": "The CPU utilization of a server during a load test." },
+        { "id": "c", "text": "User stories, architectural diagrams, and uncompiled source code." },
+        { "id": "d", "text": "The response time of an API endpoint." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Static tests analyze artifacts (documents, models, raw code) without operationally executing the software."
+    },
+    {
+      "id": "3.04",
+      "text": "During a formal review process, what is the main objective of collecting frequent feedback?",
+      "options": [
+        { "id": "a", "text": "Increase the length of the development lifecycle." },
+        { "id": "b", "text": "Avoid building the wrong product by adjusting alignment with stakeholder needs early and recurrently." },
+        { "id": "c", "text": "Replace the role of the Test Manager." },
+        { "id": "d", "text": "Generate metrics solely for individual performance evaluations." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Frequent feedback mechanisms ensure the team is building the right product, shifting the focus from detecting errors to avoiding them."
+    },
+    {
+      "id": "3.05",
+      "text": "What are static analysis tools particularly adept at?",
+      "options": [
+        { "id": "a", "text": "Determining if the graphical interface appeals to the target demographic." },
+        { "id": "b", "text": "Identifying undefined variables, unreachable (dead) code, and common security vulnerabilities." },
+        { "id": "c", "text": "Finding the exact load at which a web server crashes." },
+        { "id": "d", "text": "Evaluating the subjective usability of an application." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Static analysis tools programmatically analyze code to find structural flaws and security gaps without executing the application."
+    },
+    {
+      "id": "3.06",
+      "text": "In a technical review, what is the primary purpose of keeping minutes or detailed meeting records?",
+      "options": [
+        { "id": "a", "text": "Ensuring that decisions, identified defects, and action items are documented for follow-up." },
+        { "id": "b", "text": "Tracking the exact time each participant spends speaking." },
+        { "id": "c", "text": "Providing a document for dynamic debugging." },
+        { "id": "d", "text": "Replacing the need for a test completion report." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Documentation of reviews (like minutes or defect logs) is vital for process improvement tracking and ensuring identified defects are actually fixed."
+    },
+    {
+      "id": "3.07",
+      "text": "What approach best describes the difference between static analysis and dynamic testing regarding code paths?",
+      "options": [
+        { "id": "a", "text": "Dynamic testing can easily cover all possible paths, while static analysis cannot." },
+        { "id": "b", "text": "Static analysis can evaluate all code paths and control flows, even those extremely difficult to reproduce dynamically." },
+        { "id": "c", "text": "Static analysis only examines requirements, not code." },
+        { "id": "d", "text": "There is no difference in how they evaluate code paths." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Static analysis mathematically examines the entire code structure, detecting unreachable branches that dynamic tests could never execute or reproduce by design."
+    },
+    {
+      "id": "3.08",
+      "text": "Which statement is FALSE regarding the work product review process?",
+      "options": [
+        { "id": "a", "text": "Reviews can range from informal to formal." },
+        { "id": "b", "text": "Peer reviews are a common static testing technique." },
+        { "id": "c", "text": "Reviews are ineffective if they do not involve automated code execution." },
+        { "id": "d", "text": "The success of a review depends on clear objectives and preparation." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Reviews are, by definition, static tests, meaning the code is never executed. Their effectiveness comes from logical human scrutiny, not automated execution."
+    },
+    {
+      "id": "3.09",
+      "text": "When performing static analysis of source code to find deviations from company standards, what direct additional benefit is typically achieved?",
+      "options": [
+        { "id": "a", "text": "The code becomes immune to hardware failures." },
+        { "id": "b", "text": "The maintainability and readability of the code for future developers is drastically improved." },
+        { "id": "c", "text": "It ensures the database has no bottlenecks." },
+        { "id": "d", "text": "End users will find the application more aesthetically pleasing." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Adhering to coding standards via static analysis ensures code is uniform, predictable, and easier to maintain throughout its life cycle."
+    },
+    {
+      "id": "3.10",
+      "text": "A QA team reviews drafts of user stories as soon as they are available, before the development team accepts them. This is a direct manifestation of:",
+      "options": [
+        { "id": "a", "text": "Cloud-based test automation." },
+        { "id": "b", "text": "Good testing practices associated with the \"Shift-Left\" principle." },
+        { "id": "c", "text": "Destructive load testing." },
+        { "id": "d", "text": "Dynamic black-box testing." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Reviewing requirements work products (like user stories) as early as possible is the core of Shift-Left, preventing defects before development begins."
+    },
+    {
+      "id": "4.01",
+      "text": "A discount code is valid for purchase amounts between $50.00 and $200.00, inclusive. Using 2-value Boundary Value Analysis, which set of test inputs provides optimal boundary coverage?",
+      "options": [
+        { "id": "a", "text": "$50.00, $200.00" },
+        { "id": "b", "text": "$49.99, $50.00, $200.00, $200.01" },
+        { "id": "c", "text": "$49.99, $50.00, $50.01, $199.99, $200.00, $200.01" },
+        { "id": "d", "text": "$50.00, $100.00, $200.00" }
+      ],
+      "correctOptionId": "b",
+      "justification": "The 2-value method tests the exact boundary and the adjacent value just outside (invalid). For 50.00: 49.99 (invalid) and 50.00 (valid). For 200.00: 200.00 (valid) and 200.01 (invalid)."
+    },
+    {
+      "id": "4.02",
+      "text": "An alphanumeric password must be between 4 and 7 characters in length. Applying 3-value Boundary Value Analysis to password length, which set of lengths should be tested?",
+      "options": [
+        { "id": "a", "text": "4, 7" },
+        { "id": "b", "text": "3, 4, 7, 8" },
+        { "id": "c", "text": "3, 4, 5, 6, 7, 8" },
+        { "id": "d", "text": "2, 4, 7, 9" }
+      ],
+      "correctOptionId": "c",
+      "justification": "The 3-value BVA tests the boundary, the value immediately below, and the value immediately above. For 4: 3, 4, 5. For 7: 6, 7, 8. Combined: 3, 4, 5, 6, 7, 8."
+    },
+    {
+      "id": "4.03",
+      "text": "A transit system offers free rides to children under 5 years old and seniors 65 or older. Everyone else pays full fare. Using Equivalence Partitioning, how many partitions exist for age (assuming age must be a realistic positive number)?",
+      "options": [
+        { "id": "a", "text": "2 (Free, Pay)" },
+        { "id": "b", "text": "3 (Under 5, 5 to 64, 65 and older)" },
+        { "id": "c", "text": "4 (Invalid negative, Under 5, 5-64, 65+)" },
+        { "id": "d", "text": "5 (Invalid negative, Under 5, 5-64, 65+, Invalid excessive age)" }
+      ],
+      "correctOptionId": "d",
+      "justification": "Standard EP identifies valid AND invalid partitions. Invalid: <0. Valid: 0-4, 5-64, 65-120 (approx. max). Invalid: >120. Therefore, 3 valid partitions and at least 2 invalid ones."
+    },
+    {
+      "id": "4.04",
+      "text": "What is the fundamental principle behind Boundary Value Analysis (BVA)?",
+      "options": [
+        { "id": "a", "text": "Developers often make \"off-by-one\" logical errors at the edges of ordered equivalence partitions." },
+        { "id": "b", "text": "Testing the exact center of a partition provides the highest defect yield." },
+        { "id": "c", "text": "It is the only technique that can achieve 100% statement coverage." },
+        { "id": "d", "text": "It relies entirely on the tester's intuition." }
+      ],
+      "correctOptionId": "a",
+      "justification": "BVA is based on the heuristic that boundaries of equivalence classes are highly prone to implementation errors (e.g., using < instead of <=)."
+    },
+    {
+      "id": "4.05",
+      "text": "For a text field that accepts a maximum of 10 characters, using the 2-value BVA method, which lengths would you test for the upper boundary?",
+      "options": [
+        { "id": "a", "text": "9, 10" },
+        { "id": "b", "text": "10, 11" },
+        { "id": "c", "text": "9, 10, 11" },
+        { "id": "d", "text": "0, 10" }
+      ],
+      "correctOptionId": "b",
+      "justification": "For the upper boundary of 10, the 2-value BVA dictates testing the boundary itself (10) and the closest marginally invalid value above the boundary (11)."
+    },
+    {
+      "id": "4.06",
+      "text": "A video poker game specifies the transition behavior from \"Start\" to \"End\". To cover every unique sequence of up to 3 states / 2 transitions, what is required?",
+      "options": [
+        { "id": "a", "text": "All states coverage" },
+        { "id": "b", "text": "Valid transitions coverage" },
+        { "id": "c", "text": "All transitions coverage" },
+        { "id": "d", "text": "State combination coverage" }
+      ],
+      "correctOptionId": "c",
+      "justification": "This scenario corresponds to transition sequence coverage. All transitions coverage ensures that every valid transition and attempts at invalid ones are exercised."
+    },
+    {
+      "id": "4.07",
+      "text": "Which coverage metric is explicitly recommended for mission-critical and safety-critical software when using State Transition Testing?",
+      "options": [
+        { "id": "a", "text": "All states coverage." },
+        { "id": "b", "text": "Valid transitions coverage." },
+        { "id": "c", "text": "Full all transitions coverage." },
+        { "id": "d", "text": "Statement coverage." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Full all transitions coverage (which includes forcing invalid transitions to ensure the system handles them safely) is required for high-risk critical systems."
+    },
+    {
+      "id": "4.08",
+      "text": "In a decision table, if a system has 3 boolean conditions (True/False inputs), what is the maximum number of distinct rules (columns) before any optimization?",
+      "options": [
+        { "id": "a", "text": "3" },
+        { "id": "b", "text": "6" },
+        { "id": "c", "text": "8" },
+        { "id": "d", "text": "9" }
+      ],
+      "correctOptionId": "c",
+      "justification": "The number of logical combinations for boolean conditions is $2^n$. For 3 conditions, $2^3 = 8$ possible rules."
+    },
+    {
+      "id": "4.09",
+      "text": "In Decision Table Testing, what does a \"rule\" represent?",
+      "options": [
+        { "id": "a", "text": "A unique combination of conditions (inputs) that results in a specific set of actions (outputs)." },
+        { "id": "b", "text": "The legal framework governing software development." },
+        { "id": "c", "text": "A single line of source code." },
+        { "id": "d", "text": "The logical transition between two static states." }
+      ],
+      "correctOptionId": "a",
+      "justification": "A rule in a decision table (usually represented as a column) is the specific logical combination of conditions that triggers a predefined action."
+    },
+    {
+      "id": "4.10",
+      "text": "If a decision table has certain conditions that do not affect the output action at all given a specific combination, how is this represented to collapse and optimize the table?",
+      "options": [
+        { "id": "a", "text": "With an 'X' indicating error." },
+        { "id": "b", "text": "With a hyphen '-' indicating a \"don't care\" condition." },
+        { "id": "c", "text": "By eliminating the column entirely." },
+        { "id": "d", "text": "By exponentially increasing the number of rules." }
+      ],
+      "correctOptionId": "b",
+      "justification": "A condition that does not affect the outcome is designated as a \"don't care\" (-), allowing testers to merge multiple rules into a single optimized column, reducing redundant test cases."
+    },
+    {
+      "id": "4.11",
+      "text": "Which statement about white-box coverage metrics is mathematically accurate?",
+      "options": [
+        { "id": "a", "text": "Achieving 100% statement coverage guarantees 100% branch coverage." },
+        { "id": "b", "text": "100% branch coverage subsumes 100% statement coverage." },
+        { "id": "c", "text": "Branch coverage only measures unconditional branches." },
+        { "id": "d", "text": "Statement coverage is based on external system specifications." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Branch coverage (exercising all True/False decision outcomes) is a stricter metric. If 100% of branches are covered, 100% of statements are implicitly covered (subsumed)."
+    },
+    {
+      "id": "4.12",
+      "text": "What defines \"Fault Attacks\" in the context of experience-based testing?",
+      "options": [
+        { "id": "a", "text": "Automated penetration testing against network firewalls." },
+        { "id": "b", "text": "Creating structured lists of possible errors based on past failures and designing tests specifically to expose them." },
+        { "id": "c", "text": "Randomly clicking a user interface without any plan." },
+        { "id": "d", "text": "Testing only the boundaries of a data entry field." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Fault attacks are a systematic implementation of error guessing, leveraging tester experience to anticipate developer errors and historical defect patterns."
+    },
+    {
+      "id": "4.13",
+      "text": "Under what conditions is Exploratory Testing most effective?",
+      "options": [
+        { "id": "a", "text": "When specifications are highly detailed and there is no time pressure." },
+        { "id": "b", "text": "When testing safety-critical medical devices that require 100% documented traceability." },
+        { "id": "c", "text": "When specifications are inadequate, incomplete, or there is severe time pressure." },
+        { "id": "d", "text": "When the testing team has zero prior domain experience." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Exploratory testing (simultaneous learning, test design, and execution) thrives in agile, time-constrained environments or when formal documentation is lacking. It relies heavily on the tester's intuition."
+    },
+    {
+      "id": "4.14",
+      "text": "How is Exploratory Testing typically managed and audited to maintain focus and accountability?",
+      "options": [
+        { "id": "a", "text": "Using strictly scripted step-by-step test cases." },
+        { "id": "b", "text": "Through Session-Based Testing governed by Test Charters." },
+        { "id": "c", "text": "By writing detailed IEEE 829 test plans." },
+        { "id": "d", "text": "Through the use of static code analysis tools." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Session-based testing uses time-boxes and test charters (mission statements) to give structure and measurable outcomes to exploratory testing."
+    },
+    {
+      "id": "4.15",
+      "text": "A tester is analyzing a code snippet that contains a simple `IF-ELSE` statement. How many test cases are required as a minimum to achieve 100% Statement Coverage and how many for 100% Branch Coverage?",
+      "options": [
+        { "id": "a", "text": "1 for Statements, 1 for Branches." },
+        { "id": "b", "text": "1 for Statements, 2 for Branches." },
+        { "id": "c", "text": "2 for Statements, 2 for Branches." },
+        { "id": "d", "text": "2 for Statements, 1 for Branches." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Because there is an explicit ELSE block, both the IF and ELSE executions contain code statements. Therefore, 2 tests are needed to reach all statements, which simultaneously exercises both logical branches."
+    },
+    {
+      "id": "4.16",
+      "text": "Which of the following is an example of Collaboration-Based Test Approaches explicitly introduced in CTFL 4.0?",
+      "options": [
+        { "id": "a", "text": "Developing exhaustive mathematical decision tables." },
+        { "id": "b", "text": "Writing User Stories and Acceptance Criteria collaboratively (e.g., using ATDD or BDD)." },
+        { "id": "c", "text": "Performing blind peer reviews of source code." },
+        { "id": "d", "text": "Using automated coverage analysis tools." }
+      ],
+      "correctOptionId": "b",
+      "justification": "CTFL 4.0 emphasizes early collaboration between developers, testers, and business analysts to define quality expectations upfront via User Stories and ATDD/BDD."
+    },
+    {
+      "id": "4.17",
+      "text": "A code segment contains 5 executable statements without any conditional statements (no IF, WHILE, SWITCH). How many test cases are necessary to achieve 100% statement coverage?",
+      "options": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "5" }
+      ],
+      "correctOptionId": "b",
+      "justification": "Without branching or conditional decisions, a single execution will run linearly from top to bottom, executing all 5 statements with 1 test case."
+    },
+    {
+      "id": "4.18",
+      "text": "What main weakness do White-Box testing techniques present compared to Black-Box techniques?",
+      "options": [
+        { "id": "a", "text": "They are too easy to design." },
+        { "id": "b", "text": "They can objectively measure the percentage of code exercised." },
+        { "id": "c", "text": "They can completely fail to detect the omission of user requirements if the code handling that requirement was never written." },
+        { "id": "d", "text": "They can only be applied to mobile applications." }
+      ],
+      "correctOptionId": "c",
+      "justification": "White-box metrics are based purely on implemented code. If the developer forgot to write a required feature, existing code might have 100% coverage, but the system would still be defective by omission."
+    },
+    {
+      "id": "4.19",
+      "text": "What role does \"Error Guessing\" play within a team's overall testing strategy?",
+      "options": [
+        { "id": "a", "text": "It should be the sole technique used to certify critical aviation systems." },
+        { "id": "b", "text": "It is a highly effective supplementary technique that complements formal design techniques to catch non-obvious issues." },
+        { "id": "c", "text": "It replaces the need for boundary value analysis." },
+        { "id": "d", "text": "It is only used during unit testing by developers." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Error guessing is pragmatic and empirical, but never exhaustive. It must be used to supplement structured black-box and white-box techniques."
+    },
+    {
+      "id": "4.20",
+      "text": "In ATDD (Acceptance Test-Driven Development), who traditionally makes up the \"Three Amigos\" collaborating to define test criteria?",
+      "options": [
+        { "id": "a", "text": "Three senior developers." },
+        { "id": "b", "text": "Business representative, Developer, and Tester." },
+        { "id": "c", "text": "Scrum Master, Product Owner, and Project Manager." },
+        { "id": "d", "text": "Three independent black-box testers." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The Three Amigos model in ATDD ensures requirements are discussed and refined from three critical perspectives: what is needed (Business), how to build it (Development), and what could go wrong or how to test it (Tester)."
+    },
+    {
+      "id": "5.01",
+      "text": "What does the \"Test Pyramid\" concept emphasize regarding automated test suite architecture?",
+      "options": [
+        { "id": "a", "text": "Most tests should be complex end-to-end (E2E) tests at the top of the pyramid." },
+        { "id": "b", "text": "Tests at the bottom layer (unit) should be few but cover large functionalities." },
+        { "id": "c", "text": "The base should consist of a large volume of fast, isolated, and atomic tests, with fewer user interface tests (slow) at the top." },
+        { "id": "d", "text": "All tests should be executed manually." }
+      ],
+      "correctOptionId": "c",
+      "justification": "The pyramid dictates that bottom-layer tests run fast, isolate code, and are easy to maintain. Top-layer tests (UI/E2E) are slow, brittle, and should be minimized."
+    },
+    {
+      "id": "5.02",
+      "text": "According to Brian Marick's Testing Quadrants, which quadrant focuses on \"Business-facing tests that critique the product\" (e.g., Exploratory and Usability testing)?",
+      "options": [
+        { "id": "a", "text": "Quadrant 1 (Q1)" },
+        { "id": "b", "text": "Quadrant 2 (Q2)" },
+        { "id": "c", "text": "Quadrant 3 (Q3)" },
+        { "id": "d", "text": "Quadrant 4 (Q4)" }
+      ],
+      "correctOptionId": "c",
+      "justification": "Q3 is business-facing and product-critiquing. Q1 is technology-facing (unit). Q2 is business-facing/supporting (functional). Q4 is technology-facing/critiquing (performance/security)."
+    },
+    {
+      "id": "5.03",
+      "text": "What is typically documented within the \"Test Scope\" section of a Test Plan?",
+      "options": [
+        { "id": "a", "text": "The exact defect resolution workflow." },
+        { "id": "b", "text": "The features of the test object to be tested and, explicitly, those features excluded from testing." },
+        { "id": "c", "text": "The hourly rate of testing contractors." },
+        { "id": "d", "text": "The structure of the source code repository." }
+      ],
+      "correctOptionId": "b",
+      "justification": "A Test Plan acts as a communication tool. Defining what is in-scope and what is out-of-scope is crucial for stakeholder alignment and resource allocation."
+    },
+    {
+      "id": "5.04",
+      "text": "A test manager uses historical data from previous and similar projects (e.g., development effort in hours vs. test effort in hours) to calculate expected effort for a new project. Which estimation technique is being applied?",
+      "options": [
+        { "id": "a", "text": "Extrapolation." },
+        { "id": "b", "text": "Wideband Delphi estimation." },
+        { "id": "c", "text": "Estimation based on ratios." },
+        { "id": "d", "text": "Three-point estimation." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Using past metrics (historical data) to calculate future time based on a known variable (ratios) is a ratio-based technique."
+    },
+    {
+      "id": "5.05",
+      "text": "Which estimation technique involves building an iterative expert-based consensus, mitigating the anchoring bias of a lone individual?",
+      "options": [
+        { "id": "a", "text": "Three-point estimation." },
+        { "id": "b", "text": "Ratio-based estimation." },
+        { "id": "c", "text": "Wideband Delphi (e.g., Planning Poker)." },
+        { "id": "d", "text": "Extrapolation." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Wideband Delphi (often implemented as Planning Poker in Agile) uses blind iterative estimation by multiple experts to reach democratic consensus."
+    },
+    {
+      "id": "5.06",
+      "text": "A team establishes criteria such as \"No critical severity defects remain open\" and \"100% of planned test cases have been executed\". What are these examples of?",
+      "options": [
+        { "id": "a", "text": "Definition of Ready (DoR)." },
+        { "id": "b", "text": "Definition of Done (DoD) / Completion Criteria." },
+        { "id": "c", "text": "Test Execution Schedule." },
+        { "id": "d", "text": "Project risk mitigation." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The Definition of Done (DoD) dictates the measurable quality gates a product must pass to be considered finished and ready for release."
+    },
+    {
+      "id": "5.07",
+      "text": "What differentiates a Project Risk from a Product (Quality) Risk?",
+      "options": [
+        { "id": "a", "text": "Project risks relate to delivery capability (e.g., team illness, budget cuts); product risks relate to operational software failures (e.g., incorrect calculations)." },
+        { "id": "b", "text": "Project risks are only identified during static testing." },
+        { "id": "c", "text": "Product risks affect the development timeline, while project risks affect the end user." },
+        { "id": "d", "text": "There is no difference; they are managed using the exact same metrics." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Project risks threaten managerial success (budget, schedule, staffing). Product (quality) risks threaten the software's operational and technical integrity."
+    },
+    {
+      "id": "5.08",
+      "text": "Which of the following is the fundamental goal of Defect Management?",
+      "options": [
+        { "id": "a", "text": "Assign legal responsibility to individual developers for their mistakes." },
+        { "id": "b", "text": "Ensure that all discovered defects are tracked, analyzed, classified, and resolved (or deliberately deferred) efficiently and transparently." },
+        { "id": "c", "text": "Hide defects from external stakeholders." },
+        { "id": "d", "text": "Avoid the confirmation testing phase." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Defect management ensures the visibility, categorization (severity/priority), and proper life cycle progression of every anomaly found."
+    },
+    {
+      "id": "5.09",
+      "text": "What is the purpose of the \"Risk Register\" in Test Planning?",
+      "options": [
+        { "id": "a", "text": "List all developers working on the project and their experience level." },
+        { "id": "b", "text": "Track identified risks, their probability, impact, and corresponding mitigation strategies (Risk-based testing)." },
+        { "id": "c", "text": "Record the exact execution time of automation suites." },
+        { "id": "d", "text": "Inventory the physical test hardware available." }
+      ],
+      "correctOptionId": "b",
+      "justification": "The Risk Register is the central artifact in risk-based testing, used to continuously monitor and control threats to quality."
+    },
+    {
+      "id": "5.10",
+      "text": "A defect report states: \"The mobile banking app crashes and closes immediately upon launch, completely preventing any login or further testing.\" What are the most likely Severity (Technical impact) and Priority (Urgency of resolution) classifications?",
+      "options": [
+        { "id": "a", "text": "Low Severity, High Priority." },
+        { "id": "b", "text": "High Severity, Low Priority." },
+        { "id": "c", "text": "High Severity, High Priority." },
+        { "id": "d", "text": "Low Severity, Low Priority." }
+      ],
+      "correctOptionId": "c",
+      "justification": "The failure is critical to core functionality (High Severity) and blocks all remaining work, requiring immediate resolution by development (High Priority)."
+    },
+    {
+      "id": "5.11",
+      "text": "A company mandates that no automated test case can take more than 2 seconds to execute. Which metric would be directly benefited by this constraint?",
+      "options": [
+        { "id": "a", "text": "Fast feedback to the development team in CI/CD pipelines." },
+        { "id": "b", "text": "The total number of critical defects injected into the codebase." },
+        { "id": "c", "text": "The probability of occurrence for a project risk like budget cuts." },
+        { "id": "d", "text": "Data privacy regulatory compliance." }
+      ],
+      "correctOptionId": "a",
+      "justification": "Fast tests (the base of the pyramid) reduce build and feedback time, allowing agile teams to integrate code quicker and more securely."
+    },
+    {
+      "id": "5.12",
+      "text": "In the context of Test Control, which action is appropriate if the team observes that test execution is significantly behind schedule?",
+      "options": [
+        { "id": "a", "text": "Immediately reclassify all open defects as \"low priority\"." },
+        { "id": "b", "text": "Stop all dynamic testing and release to production based solely on static testing." },
+        { "id": "c", "text": "Adjust the strategy by reprioritizing tests using a risk-based testing approach to focus remaining time on critical areas." },
+        { "id": "d", "text": "Permanently eliminate the need to perform regression testing." }
+      ],
+      "correctOptionId": "c",
+      "justification": "Test control involves taking corrective actions based on monitoring metrics. Focusing on risk maximizes quality when time is severely constrained."
+    },
+    {
+      "id": "5.13",
+      "text": "What information is essential to include in a high-quality Bug Report to facilitate the developer's debugging work?",
+      "options": [
+        { "id": "a", "text": "Detailed reproduction steps, actual results (including logs/screenshots), and expected results according to the test basis." },
+        { "id": "b", "text": "Solely a screenshot of the error without text context." },
+        { "id": "c", "text": "The name of the developer assumed to have originally introduced the error." },
+        { "id": "d", "text": "The estimated financial cost of fixing the bug." }
+      ],
+      "correctOptionId": "a",
+      "justification": "An effective report requires reproducible mechanical steps, along with a clear comparison of what happened versus what the requirements dictated."
+    },
+    {
+      "id": "5.14",
+      "text": "Which of the following statements describes the difference between \"Definition of Ready\" (DoR) and \"Definition of Done\" (DoD)?",
+      "options": [
+        { "id": "a", "text": "DoR dictates when an item has sufficient quality to begin development/testing; DoD dictates when it has met acceptance and quality criteria to be considered complete." },
+        { "id": "b", "text": "DoR applies only to automated testing; DoD applies to manual." },
+        { "id": "c", "text": "DoR is the tester's responsibility; DoD is solely the Product Owner's responsibility." },
+        { "id": "d", "text": "There is no technical difference between the two." }
+      ],
+      "correctOptionId": "a",
+      "justification": "DoR ensures the user story is ready to be worked on (e.g., unambiguous). DoD ensures the work is polished and tested enough to be delivered."
+    },
+    {
+      "id": "5.15",
+      "text": "Why would an agile testing team decentralize Configuration Management?",
+      "options": [
+        { "id": "a", "text": "To increase the number of integration defects." },
+        { "id": "b", "text": "No team should decentralize this; CM tracks the exact versions of test items and testware, ensuring repeatability and environment integrity." },
+        { "id": "c", "text": "To reduce the cost of database software licenses." },
+        { "id": "d", "text": "So testers can change source code in production without supervision." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Configuration management is essential and non-negotiable. It maintains version control of what is being tested, guaranteeing a reported failure is reproducible in the correct environment."
+    },
+    {
+      "id": "6.01",
+      "text": "What is a significant and tangible benefit of implementing test automation?",
+      "options": [
+        { "id": "a", "text": "It allows the complete and immediate abandonment of manual exploratory testing." },
+        { "id": "b", "text": "It increases test process efficiency by executing repetitive regression tests faster and more consistently than humans, reducing manual error." },
+        { "id": "c", "text": "It guarantees the absolute absence of defects in the final product." },
+        { "id": "d", "text": "Automated tools are capable of writing their own user requirements." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Automation excels in speed of repetition and mathematical consistency, freeing human testers to perform complex and creative exploratory testing."
+    },
+    {
+      "id": "6.02",
+      "text": "Which of the following represents a major operational risk when introducing test automation?",
+      "options": [
+        { "id": "a", "text": "The automation framework and test scripts require continuous maintenance; if neglected, they become useless and break as the software evolves." },
+        { "id": "b", "text": "Automated tests execute too fast for stakeholders to observe visually." },
+        { "id": "c", "text": "Testing tools physically prevent testers from finding critical severity defects." },
+        { "id": "d", "text": "Automated tests cannot be integrated into Continuous Integration (CI/CD) pipelines." }
+      ],
+      "correctOptionId": "a",
+      "justification": "The \"hidden cost\" or risk of automation is maintenance. Superficial changes in software frequently break fragile automated tests, requiring constant script maintenance."
+    },
+    {
+      "id": "6.03",
+      "text": "A team uses a tool to synthetically generate massive user profiles with masked social security numbers, populating a database before running a regression suite. What type of tool is this?",
+      "options": [
+        { "id": "a", "text": "Bug prediction tool." },
+        { "id": "b", "text": "Test data preparation tool." },
+        { "id": "c", "text": "Continuous Integration (CI) tool." },
+        { "id": "d", "text": "Performance tool." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Test data preparation tools generate, obfuscate, mask, or extract the necessary data to safely feed and execute specific test cases."
+    },
+    {
+      "id": "6.04",
+      "text": "In what critical way does a Continuous Integration (CI) tool support the modern testing process?",
+      "options": [
+        { "id": "a", "text": "By automatically generating theoretical test models without human intervention." },
+        { "id": "b", "text": "By triggering automated build and test runs whenever a developer commits code to a repository, guaranteeing fast feedback." },
+        { "id": "c", "text": "By replacing the need for a defect tracking and management system." },
+        { "id": "d", "text": "By automatically fixing logical and syntax compilation errors." }
+      ],
+      "correctOptionId": "b",
+      "justification": "CI tools (like Jenkins, GitLab CI, or GitHub Actions) orchestrate the uninterrupted execution of automated test suites (usually the base of the Pyramid) after each code integration."
+    },
+    {
+      "id": "6.05",
+      "text": "Which scenario most clearly justifies the financial investment in a Performance/Load Testing tool?",
+      "options": [
+        { "id": "a", "text": "Checking if the font color and css design match corporate brand guidelines." },
+        { "id": "b", "text": "Verifying that an e-commerce shopping cart can handle 10,000 concurrent user sessions during a Black Friday sale without crashing." },
+        { "id": "c", "text": "Finding unreachable (dead) code in a legacy module via flow analysis." },
+        { "id": "d", "text": "Tracking the life cycle state of reported bugs over time." }
+      ],
+      "correctOptionId": "b",
+      "justification": "Load/performance tools simulate hyperbolic volumes of traffic or concurrent usage that is physically and operationally impossible to reproduce manually."
+    },
+    {
+      "id": "6.06",
+      "text": "When selecting a new testing tool for an organization, what should be an initial step before massive deployment to all teams?",
+      "options": [
+        { "id": "a", "text": "Perform a pilot test (Proof of Concept) with a small team to evaluate if the tool fits the existing process and provides the expected value." },
+        { "id": "b", "text": "Fire all manual testers immediately." },
+        { "id": "c", "text": "Require the tool vendor to rewrite the organization's source code to fit the tool." },
+        { "id": "d", "text": "Implement the tool without training to evaluate interface intuitiveness." }
+      ],
+      "correctOptionId": "a",
+      "justification": "A pilot test isolates the investment risk, allowing the evaluation of the learning curve, local environment compatibility, and benefit metrics without disrupting the whole organization."
+    }
+  ]
+}
