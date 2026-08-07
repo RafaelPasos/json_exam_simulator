@@ -393,6 +393,14 @@ input[type="number"]:focus, .form-select:focus {
   margin-left: auto;
 }
 
+#btn-start, #btn-restart {
+  background: #0f172a !important;
+}
+
+#btn-start:not(:disabled) #btn-canvas {
+  display: block !important;
+}
+
 .hide { display: none !important; }
 
 .results-layout {

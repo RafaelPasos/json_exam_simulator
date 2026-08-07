@@ -514,3 +514,242 @@ function resetApp() {
 
 // Boot
 init();
+
+// --- Title Animation ---
+const canvas = document.getElementById('title-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+const resultsCanvas = document.getElementById('results-title-canvas');
+const resultsCtx = resultsCanvas.getContext('2d');
+let resultsParticles = [];
+
+const numParticles = 80;
+const connectionDistance = 40;
+
+const btnCanvas = document.getElementById('btn-canvas');
+const btnCtx = btnCanvas.getContext('2d');
+const restartBtnCanvas = document.getElementById('restart-btn-canvas');
+const restartBtnCtx = restartBtnCanvas.getContext('2d');
+let btnParticles = [];
+const numBtnParticles = 30;
+
+function initTitleAnimation() {
+  particles = [];
+  for (let i = 0; i < numParticles; i++) {
+    particles.push({
+      x: Math.random() * 500,
+      y: Math.random() * 60,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      size: Math.random() * 1.5 + 0.5
+    });
+  }
+  
+  btnParticles = [];
+  for (let i = 0; i < numBtnParticles; i++) {
+    btnParticles.push({
+      x: Math.random() * 300,
+      y: Math.random() * 50,
+      vx: (Math.random() - 0.5) * 1.5,
+      vy: (Math.random() - 0.5) * 1.5,
+      size: Math.random() * 1.5 + 0.5
+    });
+  }
+  
+  resultsParticles = [];
+  for (let i = 0; i < numParticles; i++) {
+    resultsParticles.push({
+      x: Math.random() * 500,
+      y: Math.random() * 60,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      size: Math.random() * 1.5 + 0.5
+    });
+  }
+  
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = 500 * dpr;
+  canvas.height = 60 * dpr;
+  ctx.scale(dpr, dpr);
+  
+  resultsCanvas.width = 500 * dpr;
+  resultsCanvas.height = 60 * dpr;
+  resultsCtx.scale(dpr, dpr);
+  
+  btnCanvas.width = 150 * dpr;
+  btnCanvas.height = 50 * dpr;
+  btnCtx.scale(dpr, dpr);
+  
+  restartBtnCanvas.width = 300 * dpr;
+  restartBtnCanvas.height = 50 * dpr;
+  restartBtnCtx.scale(dpr, dpr);
+  
+  requestAnimationFrame(drawTitleAnimation);
+}
+
+function drawTitleAnimation() {
+  if (state.status === 'setup') {
+    ctx.clearRect(0, 0, 500, 60);
+    
+    // Draw base text
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = '#0f172a';
+    ctx.font = '800 44px Inter, sans-serif'; 
+    ctx.textBaseline = 'middle';
+    ctx.fillText('JSON Exam Simulator', 0, 32);
+    
+    // Draw particles clipped to text
+    ctx.globalCompositeOperation = 'source-atop';
+    ctx.fillStyle = '#4da4c9'; 
+    ctx.lineWidth = 1;
+    
+    for (let i = 0; i < numParticles; i++) {
+      let p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      // Bounce off edges
+      if (p.x < 0 || p.x > 500) p.vx *= -1;
+      if (p.y < 0 || p.y > 60) p.vy *= -1;
+      
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Draw connecting lines
+      for (let j = i + 1; j < numParticles; j++) {
+        let p2 = particles[j];
+        let dx = p.x - p2.x;
+        let dy = p.y - p2.y;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        
+        if (dist < connectionDistance) {
+          let opacity = 1 - (dist / connectionDistance);
+          ctx.strokeStyle = `rgba(77, 164, 201, ${opacity * 0.8})`;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+    }
+  } else if (state.status === 'finished') {
+    resultsCtx.clearRect(0, 0, 500, 60);
+    
+    resultsCtx.globalCompositeOperation = 'source-over';
+    resultsCtx.fillStyle = '#0f172a';
+    resultsCtx.font = '800 44px Inter, sans-serif'; 
+    resultsCtx.textBaseline = 'middle';
+    resultsCtx.fillText(i18n[currentLang].examResultsTitle, 0, 32);
+    
+    resultsCtx.globalCompositeOperation = 'source-atop';
+    resultsCtx.fillStyle = '#4da4c9'; 
+    resultsCtx.lineWidth = 1;
+    
+    for (let i = 0; i < numParticles; i++) {
+      let p = resultsParticles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      if (p.x < 0 || p.x > 500) p.vx *= -1;
+      if (p.y < 0 || p.y > 60) p.vy *= -1;
+      
+      resultsCtx.beginPath();
+      resultsCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      resultsCtx.fill();
+      
+      for (let j = i + 1; j < numParticles; j++) {
+        let p2 = resultsParticles[j];
+        let dx = p.x - p2.x;
+        let dy = p.y - p2.y;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        
+        if (dist < connectionDistance) {
+          let opacity = 1 - (dist / connectionDistance);
+          resultsCtx.strokeStyle = `rgba(77, 164, 201, ${opacity * 0.8})`;
+          resultsCtx.beginPath();
+          resultsCtx.moveTo(p.x, p.y);
+          resultsCtx.lineTo(p2.x, p2.y);
+          resultsCtx.stroke();
+        }
+      }
+    }
+    
+    // Draw restart button animation
+    restartBtnCtx.clearRect(0, 0, 300, 50);
+    restartBtnCtx.fillStyle = '#4da4c9'; 
+    restartBtnCtx.lineWidth = 1;
+    
+    for (let i = 0; i < numBtnParticles; i++) {
+      let p = btnParticles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      if (p.x < 0 || p.x > 300) p.vx *= -1;
+      if (p.y < 0 || p.y > 50) p.vy *= -1;
+      
+      restartBtnCtx.beginPath();
+      restartBtnCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      restartBtnCtx.fill();
+      
+      for (let j = i + 1; j < numBtnParticles; j++) {
+        let p2 = btnParticles[j];
+        let dx = p.x - p2.x;
+        let dy = p.y - p2.y;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        
+        if (dist < 30) {
+          let opacity = 1 - (dist / 30);
+          restartBtnCtx.strokeStyle = `rgba(77, 164, 201, ${opacity * 0.8})`;
+          restartBtnCtx.beginPath();
+          restartBtnCtx.moveTo(p.x, p.y);
+          restartBtnCtx.lineTo(p2.x, p2.y);
+          restartBtnCtx.stroke();
+        }
+      }
+    }
+  }
+  
+  // Draw button animation if enabled
+  if (!btnStart.disabled) {
+    btnCtx.clearRect(0, 0, 150, 50);
+    btnCtx.fillStyle = '#4da4c9'; // Blue particles
+    btnCtx.lineWidth = 1;
+    
+    for (let i = 0; i < numBtnParticles; i++) {
+      let p = btnParticles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      if (p.x < 0 || p.x > 150) p.vx *= -1;
+      if (p.y < 0 || p.y > 50) p.vy *= -1;
+      
+      btnCtx.beginPath();
+      btnCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      btnCtx.fill();
+      
+      for (let j = i + 1; j < numBtnParticles; j++) {
+        let p2 = btnParticles[j];
+        let dx = p.x - p2.x;
+        let dy = p.y - p2.y;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        
+        if (dist < 30) {
+          let opacity = 1 - (dist / 30);
+          btnCtx.strokeStyle = `rgba(77, 164, 201, ${opacity * 0.8})`; // Blue lines
+          btnCtx.beginPath();
+          btnCtx.moveTo(p.x, p.y);
+          btnCtx.lineTo(p2.x, p2.y);
+          btnCtx.stroke();
+        }
+      }
+    }
+  }
+  
+  requestAnimationFrame(drawTitleAnimation);
+}
+
+document.fonts.ready.then(() => {
+  initTitleAnimation();
+});

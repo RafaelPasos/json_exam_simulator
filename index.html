@@ -41,7 +41,7 @@
     <!-- SETUP VIEW -->
     <section id="view-setup" class="view active">
       <div class="glass-panel">
-        <h1>JSON Exam Simulator</h1>
+        <canvas id="title-canvas" style="width: 500px; max-width: 100%; height: auto; margin-bottom: 0.5rem;" aria-label="JSON Exam Simulator" role="heading" aria-level="1"></canvas>
         <p class="subtitle" data-i18n="subtitle">Upload a question bank to begin.</p>
         
         <div class="form-group">
@@ -76,7 +76,10 @@
         </div>
 
         <div style="text-align: right; margin-top: 1rem;">
-          <button id="btn-start" class="btn primary-btn" disabled data-i18n="btnStart">Start Exam</button>
+          <button id="btn-start" class="btn primary-btn" disabled style="position: relative; overflow: hidden;">
+            <canvas id="btn-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none;"></canvas>
+            <span data-i18n="btnStart" style="position: relative; pointer-events: none; z-index: 1;">Start Exam</span>
+          </button>
         </div>
       </div>
     </section>
@@ -120,7 +123,7 @@
     <!-- RESULTS VIEW -->
     <section id="view-results" class="view">
       <div class="glass-panel">
-        <h1 data-i18n="examResultsTitle">Exam Results</h1>
+        <canvas id="results-title-canvas" style="width: 500px; max-width: 100%; height: auto; margin-bottom: 0.5rem;" aria-label="Exam Results" role="heading" aria-level="1"></canvas>
         
         <div class="results-layout">
           <div class="results-sidebar">
@@ -132,7 +135,10 @@
             </div>
             
             <div class="review-actions">
-              <button id="btn-restart" class="btn secondary-btn" data-i18n="btnRestart">Take Another Exam</button>
+              <button id="btn-restart" class="btn primary-btn" style="position: relative; overflow: hidden; width: 100%;">
+                <canvas id="restart-btn-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+                <span data-i18n="btnRestart" style="position: relative; pointer-events: none; z-index: 1;">Take Another Exam</span>
+              </button>
             </div>
           </div>
           
