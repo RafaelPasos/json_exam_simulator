@@ -19,6 +19,11 @@ const fileIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" st
 const examTitleDisplay = document.getElementById('active-exam-title');
 const timerDisplay = document.getElementById('timer-display');
 const btnPauseResume = document.getElementById('btn-pause-resume');
+
+// About Modal Elements
+const btnAbout = document.getElementById('btn-about');
+const btnCloseAbout = document.getElementById('btn-close-about');
+const aboutModal = document.getElementById('about-modal');
 const btnResetExam = document.getElementById('btn-reset-exam');
 const progressBar = document.getElementById('progress-bar');
 const questionNumberDisplay = document.getElementById('question-number');
@@ -52,10 +57,24 @@ const i18n = {
     btnNext: "Next",
     btnSubmit: "Submit Exam",
     examPaused: "Exam Paused",
-    examResultsTitle: "Exam Results",
+    resultsHeader: "Exam Results",
+    scoreSubtitle: "Score",
     btnRestart: "Take Another Exam",
+    btnHelp: "Help",
     yourAnswer: "Your Answer:",
-    scoreText: (correct, total) => `You got ${correct} out of ${total} correct.`
+    scoreText: (correct, total) => `You got ${correct} out of ${total} correct.`,
+    aboutTitle: "About JSON Exam Simulator",
+    aboutIntro: "This is a lightweight web app designed to simulate certification exams using custom JSON files. Your data never leaves your browser.",
+    aboutHowToTitle: "How to Use",
+    aboutHowToDesc: "Click a preloaded exam or drag-and-drop your own JSON file. Adjust the settings, and click Start Exam.",
+    aboutJsonFormat: "JSON Format Example",
+    aboutPromptTitle: "Generate Exams using AI",
+    aboutPromptDesc: "Copy and paste these tailored prompts into an AI (like ChatGPT, Claude, or Gemini) to easily generate your own custom exam files.",
+    promptTopicTitle: "Prompt 1: Generate from a Certification Topic",
+    promptTopicText: "Act as an expert in [INSERT CERTIFICATION/TOPIC]. Create a 60-question multiple-choice practice exam simulating real-world scenarios. Output the result as a downloadable JSON file matching this exact schema: {\"title\": \"[Exam Title]\", \"questions\": [{\"id\": 1, \"question\": \"...\", \"options\": [\"...\", \"...\", \"...\", \"...\"], \"answer\": 0, \"justification\": \"...\"}]}. The 'answer' field must be a 0-based integer representing the correct option. Do not include markdown formatting or any text outside the JSON.",
+    promptDocTitle: "Prompt 2: Extract from a PDF/Word Document",
+    promptDocText: "I have attached a study guide document. Please extract the key concepts and generate a 60-question multiple-choice practice exam based strictly on the contents of this document. Output the result as a downloadable JSON file matching this exact schema: {\"title\": \"[Exam Title]\", \"questions\": [{\"id\": 1, \"question\": \"...\", \"options\": [\"...\", \"...\", \"...\", \"...\"], \"answer\": 0, \"justification\": \"...\"}]}. The 'answer' field must be a 0-based integer representing the correct option. Do not include markdown formatting or any text outside the JSON.",
+    btnCopy: "Copy"
   },
   es: {
     subtitle: "Sube un banco de preguntas para comenzar.",
@@ -72,10 +91,24 @@ const i18n = {
     btnNext: "Siguiente",
     btnSubmit: "Entregar Examen",
     examPaused: "Examen Pausado",
-    examResultsTitle: "Resultados del Examen",
+    resultsHeader: "Resultados del Examen",
+    scoreSubtitle: "Puntuación",
     btnRestart: "Tomar Otro Examen",
+    btnHelp: "Ayuda",
     yourAnswer: "Tu Respuesta:",
-    scoreText: (correct, total) => `Obtuviste ${correct} de ${total} correctas.`
+    scoreText: (correct, total) => `Obtuviste ${correct} de ${total} correctas.`,
+    aboutTitle: "Acerca del Simulador",
+    aboutIntro: "Esta es una aplicación web ligera diseñada para simular exámenes de certificación usando archivos JSON personalizados. Tus datos nunca salen del navegador.",
+    aboutHowToTitle: "Cómo usar",
+    aboutHowToDesc: "Haz clic en un examen precargado o arrastra tu propio archivo JSON. Ajusta la configuración y haz clic en Comenzar Examen.",
+    aboutJsonFormat: "Ejemplo de Formato JSON",
+    aboutPromptTitle: "Generar Exámenes con IA",
+    aboutPromptDesc: "Copia y pega estos prompts adaptados en una IA (como ChatGPT, Claude o Gemini) para generar fácilmente tus propios archivos de examen.",
+    promptTopicTitle: "Prompt 1: Generar desde un Tema de Certificación",
+    promptTopicText: "Actúa como un experto en [INSERTAR CERTIFICACIÓN/TEMA]. Crea un examen de práctica de 60 preguntas de opción múltiple simulando escenarios del mundo real. Genera el resultado como un archivo JSON descargable que coincida con este esquema exacto: {\"title\": \"[Título del Examen]\", \"questions\": [{\"id\": 1, \"question\": \"...\", \"options\": [\"...\", \"...\", \"...\", \"...\"], \"answer\": 0, \"justification\": \"...\"}]}. El campo 'answer' debe ser un número entero basado en 0 que represente la opción correcta. No incluyas formato markdown ni texto fuera del JSON.",
+    promptDocTitle: "Prompt 2: Extraer de un Documento PDF/Word",
+    promptDocText: "He adjuntado un documento de guía de estudio. Por favor, extrae los conceptos clave y genera un examen de práctica de 60 preguntas de opción múltiple basado estrictamente en el contenido de este documento. Genera el resultado como un archivo JSON descargable que coincida con este esquema exacto: {\"title\": \"[Título del Examen]\", \"questions\": [{\"id\": 1, \"question\": \"...\", \"options\": [\"...\", \"...\", \"...\", \"...\"], \"answer\": 0, \"justification\": \"...\"}]}. El campo 'answer' debe ser un número entero basado en 0 que represente la opción correcta. No incluyas formato markdown ni texto fuera del JSON.",
+    btnCopy: "Copiar"
   }
 };
 let currentLang = 'en';
@@ -90,20 +123,40 @@ let state = {
 
 let timerInterval = null;
 
-function setLanguage(lang) {
-  currentLang = lang;
-  const dict = i18n[lang];
+function updateLanguage() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (dict[key]) {
-      el.textContent = dict[key];
+    if (i18n[currentLang] && i18n[currentLang][key]) {
+      if (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {
+        el.value = i18n[currentLang][key];
+      } else {
+        el.textContent = i18n[currentLang][key];
+      }
     }
   });
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  updateLanguage();
+  
+  const btnLangEn = document.getElementById('btn-lang-en');
+  const btnLangEs = document.getElementById('btn-lang-es');
+  if (btnLangEn && btnLangEs) {
+    if (lang === 'en') {
+      btnLangEn.classList.add('active');
+      btnLangEs.classList.remove('active');
+    } else {
+      btnLangEs.classList.add('active');
+      btnLangEn.classList.remove('active');
+    }
+  }
 }
 
 // --- Initialization ---
 function init() {
   loadState();
+  setLanguage(currentLang);
   
   if (state.status === 'active' || state.status === 'paused') {
     renderExamView();
@@ -149,6 +202,14 @@ function showView(viewName) {
 function attachEventListeners() {
   // Setup
   fileInput.addEventListener('change', handleFileUpload);
+  const btnLangEn = document.getElementById('btn-lang-en');
+  const btnLangEs = document.getElementById('btn-lang-es');
+  
+  if (btnLangEn && btnLangEs) {
+    btnLangEn.addEventListener('click', () => setLanguage('en'));
+    btnLangEs.addEventListener('click', () => setLanguage('es'));
+  }
+
   btnLoadEn.addEventListener('click', () => fetchExam('CTFL_EN.json'));
   btnLoadEs.addEventListener('click', () => fetchExam('CTFL_ES.json'));
   btnStart.addEventListener('click', startExam);
@@ -170,6 +231,55 @@ function attachEventListeners() {
 
   // Restart
   btnRestart.addEventListener('click', resetApp);
+  
+  if (btnAbout && btnCloseAbout && aboutModal) {
+    btnAbout.addEventListener('click', () => {
+      aboutModal.classList.remove('hide');
+    });
+
+    btnCloseAbout.addEventListener('click', () => {
+      aboutModal.classList.add('hide');
+    });
+
+    aboutModal.addEventListener('click', (e) => {
+      if (e.target === aboutModal) {
+        aboutModal.classList.add('hide');
+      }
+    });
+  }
+
+  // Copy Buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const targetId = e.currentTarget.getAttribute('data-target');
+      const textarea = document.getElementById(targetId);
+      if (textarea) {
+        try {
+          // Use modern clipboard API if available
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(textarea.value);
+          } else {
+            // Fallback for non-secure contexts
+            textarea.select();
+            document.execCommand('copy');
+          }
+          
+          const originalText = e.currentTarget.innerHTML;
+          const copiedText = currentLang === 'es' ? '¡Copiado!' : 'Copied!';
+          
+          e.currentTarget.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>${copiedText}</span>`;
+          e.currentTarget.classList.add('copied');
+          
+          setTimeout(() => {
+            e.currentTarget.innerHTML = originalText;
+            e.currentTarget.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy", err);
+        }
+      }
+    });
+  });
 }
 
 // --- File Handling ---
