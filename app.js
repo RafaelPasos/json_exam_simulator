@@ -524,7 +524,8 @@ const resultsCanvas = document.getElementById('results-title-canvas');
 const resultsCtx = resultsCanvas.getContext('2d');
 let resultsParticles = [];
 
-const numParticles = 80;
+const numTitleParticles = 150; // Increased for larger area
+const numResultsParticles = 80;
 const connectionDistance = 40;
 
 const btnCanvas = document.getElementById('btn-canvas');
@@ -536,10 +537,10 @@ const numBtnParticles = 30;
 
 function initTitleAnimation() {
   particles = [];
-  for (let i = 0; i < numParticles; i++) {
+  for (let i = 0; i < numTitleParticles; i++) {
     particles.push({
       x: Math.random() * 500,
-      y: Math.random() * 60,
+      y: Math.random() * 140, // Increased height for two lines
       vx: (Math.random() - 0.5) * 0.8,
       vy: (Math.random() - 0.5) * 0.8,
       size: Math.random() * 1.5 + 0.5
@@ -549,7 +550,7 @@ function initTitleAnimation() {
   btnParticles = [];
   for (let i = 0; i < numBtnParticles; i++) {
     btnParticles.push({
-      x: Math.random() * 300,
+      x: Math.random() * 260,
       y: Math.random() * 50,
       vx: (Math.random() - 0.5) * 1.5,
       vy: (Math.random() - 0.5) * 1.5,
@@ -558,7 +559,7 @@ function initTitleAnimation() {
   }
   
   resultsParticles = [];
-  for (let i = 0; i < numParticles; i++) {
+  for (let i = 0; i < numResultsParticles; i++) {
     resultsParticles.push({
       x: Math.random() * 500,
       y: Math.random() * 60,
@@ -570,18 +571,18 @@ function initTitleAnimation() {
   
   const dpr = window.devicePixelRatio || 1;
   canvas.width = 500 * dpr;
-  canvas.height = 60 * dpr;
+  canvas.height = 140 * dpr; // Increased height
   ctx.scale(dpr, dpr);
   
   resultsCanvas.width = 500 * dpr;
   resultsCanvas.height = 60 * dpr;
   resultsCtx.scale(dpr, dpr);
   
-  btnCanvas.width = 150 * dpr;
+  btnCanvas.width = 260 * dpr;
   btnCanvas.height = 50 * dpr;
   btnCtx.scale(dpr, dpr);
   
-  restartBtnCanvas.width = 300 * dpr;
+  restartBtnCanvas.width = 260 * dpr;
   restartBtnCanvas.height = 50 * dpr;
   restartBtnCtx.scale(dpr, dpr);
   
@@ -590,35 +591,41 @@ function initTitleAnimation() {
 
 function drawTitleAnimation() {
   if (state.status === 'setup') {
-    ctx.clearRect(0, 0, 500, 60);
+    ctx.clearRect(0, 0, 500, 140);
     
     // Draw base text
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = '#0f172a';
+    ctx.textBaseline = 'top';
+    
+    // JSON line (2x size)
+    ctx.font = '800 88px Inter, sans-serif'; 
+    ctx.fillText('JSON', 0, 0);
+    
+    // Exam Simulator line
     ctx.font = '800 44px Inter, sans-serif'; 
-    ctx.textBaseline = 'middle';
-    ctx.fillText('JSON Exam Simulator', 0, 32);
+    ctx.fillText('Exam Simulator', 0, 85);
     
     // Draw particles clipped to text
     ctx.globalCompositeOperation = 'source-atop';
     ctx.fillStyle = '#4da4c9'; 
     ctx.lineWidth = 1;
     
-    for (let i = 0; i < numParticles; i++) {
+    for (let i = 0; i < numTitleParticles; i++) {
       let p = particles[i];
       p.x += p.vx;
       p.y += p.vy;
       
       // Bounce off edges
       if (p.x < 0 || p.x > 500) p.vx *= -1;
-      if (p.y < 0 || p.y > 60) p.vy *= -1;
+      if (p.y < 0 || p.y > 140) p.vy *= -1;
       
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fill();
       
       // Draw connecting lines
-      for (let j = i + 1; j < numParticles; j++) {
+      for (let j = i + 1; j < numTitleParticles; j++) {
         let p2 = particles[j];
         let dx = p.x - p2.x;
         let dy = p.y - p2.y;
@@ -647,7 +654,7 @@ function drawTitleAnimation() {
     resultsCtx.fillStyle = '#4da4c9'; 
     resultsCtx.lineWidth = 1;
     
-    for (let i = 0; i < numParticles; i++) {
+    for (let i = 0; i < numResultsParticles; i++) {
       let p = resultsParticles[i];
       p.x += p.vx;
       p.y += p.vy;
@@ -659,7 +666,7 @@ function drawTitleAnimation() {
       resultsCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       resultsCtx.fill();
       
-      for (let j = i + 1; j < numParticles; j++) {
+      for (let j = i + 1; j < numResultsParticles; j++) {
         let p2 = resultsParticles[j];
         let dx = p.x - p2.x;
         let dy = p.y - p2.y;
@@ -677,7 +684,7 @@ function drawTitleAnimation() {
     }
     
     // Draw restart button animation
-    restartBtnCtx.clearRect(0, 0, 300, 50);
+    restartBtnCtx.clearRect(0, 0, 260, 50);
     restartBtnCtx.fillStyle = '#4da4c9'; 
     restartBtnCtx.lineWidth = 1;
     
@@ -686,7 +693,7 @@ function drawTitleAnimation() {
       p.x += p.vx;
       p.y += p.vy;
       
-      if (p.x < 0 || p.x > 300) p.vx *= -1;
+      if (p.x < 0 || p.x > 260) p.vx *= -1;
       if (p.y < 0 || p.y > 50) p.vy *= -1;
       
       restartBtnCtx.beginPath();
@@ -713,7 +720,7 @@ function drawTitleAnimation() {
   
   // Draw button animation if enabled
   if (!btnStart.disabled) {
-    btnCtx.clearRect(0, 0, 150, 50);
+    btnCtx.clearRect(0, 0, 260, 50);
     btnCtx.fillStyle = '#4da4c9'; // Blue particles
     btnCtx.lineWidth = 1;
     
@@ -722,7 +729,7 @@ function drawTitleAnimation() {
       p.x += p.vx;
       p.y += p.vy;
       
-      if (p.x < 0 || p.x > 150) p.vx *= -1;
+      if (p.x < 0 || p.x > 260) p.vx *= -1;
       if (p.y < 0 || p.y > 50) p.vy *= -1;
       
       btnCtx.beginPath();
