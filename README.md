@@ -1,5 +1,8 @@
 # Exam Simulator
 
+LIVE DEMO
+https://rafaelpasos.github.io/json_exam_simulator/ 
+
 A fast, beautiful, and completely client-side Exam Simulator. This web app allows you to upload custom question banks (via JSON), set your own parameters, and take practice exams with a smooth, native-feeling user experience. 
 
 All data is processed locally in your browser. No databases, no sign-ups, and no servers required.
@@ -61,3 +64,21 @@ Each question in the array must have:
 ```
 
 Make sure the `correctOptionId` perfectly matches one of the `id` values provided in the `options` array!
+
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/b6ecd3b7-36f8-4b0b-a07d-18c1ed8420ca" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/5334b4e0-2b2f-4602-99e4-9f4713d2a0b9" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/3c7c5dbf-c003-425f-ad7f-e04b70f1ef3b" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/857366a3-2ba1-466c-9641-4398f7202bd9" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/9e5d6e9f-1956-4d35-aa44-4375d82dc3d7" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/1121f143-29b5-4cb9-b4d5-636e64318cb2" />
+
+<img width="1470" height="750" alt="image" src="https://github.com/user-attachments/assets/640de981-16f1-4480-a0b8-0e08d89e6d85" />
+
+
+
