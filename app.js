@@ -758,7 +758,7 @@ function drawTitleAnimation() {
     resultsCtx.fillStyle = '#0f172a';
     resultsCtx.font = '800 44px Inter, sans-serif'; 
     resultsCtx.textBaseline = 'middle';
-    resultsCtx.fillText(i18n[currentLang].examResultsTitle, 0, 32);
+    resultsCtx.fillText(i18n[currentLang].resultsHeader, 0, 32);
     
     resultsCtx.globalCompositeOperation = 'source-atop';
     resultsCtx.fillStyle = '#4da4c9'; 
